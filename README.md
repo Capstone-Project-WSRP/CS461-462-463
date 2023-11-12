@@ -2,7 +2,7 @@
 Repo for our CS461 capstone project - Website Security Research Project.
 
 -You need to clone this project: 
-    git clone https://github.com/cattells/CS461-462-463
+    git clone https://github.com/Capstone-Project-WSRP/CS461-462-463
 
 -Create your branch:
     git branch <yourBranchName>
@@ -11,7 +11,7 @@ Repo for our CS461 capstone project - Website Security Research Project.
     git checkout -b <yourBranchName>
 
 -Add your name to welcome page template:
-    <!-- <li> yourName </li> -->
+    <li> yourName </li>
 
 -Add the changes:
     git add -A
