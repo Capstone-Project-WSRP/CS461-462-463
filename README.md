@@ -27,3 +27,4 @@ Currently to run this local, move into the correct directory and type
     - python index.py
 
 Then invagate to http://localhost:5000
+![Alt text](image.png)
