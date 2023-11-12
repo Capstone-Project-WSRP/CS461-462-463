@@ -19,6 +19,9 @@ Repo for our CS461 capstone project - Website Security Research Project.
 -then commit the changes
     git commit -m "commit message"
 
+-Then push these changes
+    git push
+
 Currently to run this local, move into the correct directory and type
 
     - python index.py
