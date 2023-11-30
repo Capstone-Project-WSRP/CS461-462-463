@@ -1,30 +1,15 @@
 # CS461
 Repo for our CS461 capstone project - Website Security Research Project.
 
--You need to clone this project: 
-    git clone https://github.com/Capstone-Project-WSRP/CS461-462-463
+-There is now a folder for the frontend and backend. 
+-Added a Cheat sheet for Git commands, this will be in the parent directory
 
--Create your branch:
-    git branch <yourBranchName>
+-We will be using Postman to run test, those will be kept in the test folder.
+ that way we can all run the same test as we create them. 
 
--Move into that branch:
-    git checkout -b <yourBranchName>
-
--Add your name to welcome page template:
-    <li> yourName </li>
-
--Add the changes:
-    git add -A
-
--then commit the changes
-    git commit -m "commit message"
-
--Then push these changes
-    git push
-
-Currently to run this local, move into the correct directory and type
+Currently to run this locally, move into the correct directory and type
 
     - python index.py
 
 Then invagate to http://localhost:5000
-![Alt text](image.png)
+![Alt text](Untitled.png)
