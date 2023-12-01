@@ -1,0 +1,20 @@
+/* Footer.module.css */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.createdBy {
+  flex-grow: 2;
+}
+
+.date {
+  flex-basis: 100px;
+}
