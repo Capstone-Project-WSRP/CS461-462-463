@@ -1,0 +1,34 @@
+/* Home.module.css */
+.homeContainer {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: #333;
+}
+
+.description {
+  color: #666;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Additional styles for the links */
+.link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.link:hover {
+  color: #0056b3;
+}
