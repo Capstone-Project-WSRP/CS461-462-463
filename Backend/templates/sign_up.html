@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Registration Form</title>
+    <title>Registration Form</title>
+    <script type="text/javascript">
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            var name = document.getElementsByName('name')[0].value;
+            var email = document.getElementsByName('email')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            
+            const response = await fetch(`/create_user/${encodeURIComponent(name)}/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
+                method: 'POST',
+            });
+
+            if (response.ok) {
+                alert(`Success: ${name} added!`)
+                window.location.href = '/';  // Redirect to home on success
+            } else {
+                alert('Error: Email already exists');
+                window.location.href = '/sign_up';  // Redirect back to sign-up page
+            }
+        }
+    </script>
 </head>
 <body>
-    <form action="/create_user" method="post">
+    <form onsubmit="handleSubmit(event);">
         <label>Name:</label><br>
         <input type="text" name="name"><br>
         <label>Email:</label><br>
         <input type="email" name="email"><br><br>
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>

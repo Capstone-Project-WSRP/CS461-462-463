@@ -12,8 +12,8 @@ with app.app_context():
 
     # List of user data to add
     users = [
-        {'name': 'Alice', 'email': 'alice@example.com'},
-        {'name': 'Bob', 'email': 'bob@example.com'},
+        {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
+        {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
         # Add more users as needed
     ]
 
@@ -26,7 +26,7 @@ with app.app_context():
 
     # Add users to the database
     for user_data in users:
-        user = User(name=user_data['name'], email=user_data['email'])
+        user = User(name=user_data['name'], email=user_data['email'], password=user_data['password'])
         db.session.add(user)
 
     for admin_data in admin:

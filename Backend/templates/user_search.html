@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Search</title>
+    <script type="text/javascript">
+        function updateAction() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var form = document.getElementById('searchForm');
+            form.action = '/user_search/' + encodeURIComponent(email) + '/' + encodeURIComponent(password);
+        }
+    </script>
+</head>
+<body>
+    <h1>Search for a User</h1>
+    <form id="searchForm" onsubmit="updateAction();">
+        <label for="email">User Email:</label>
+        <input type="text" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
