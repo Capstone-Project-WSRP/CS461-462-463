@@ -1,9 +1,10 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import pymysql
 
 app = Flask(__name__)
-
+CORS(app)
 # MySQL configurations using SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -107,12 +108,18 @@ def user_search(email, password):
     user = get_user(email)
 
     if user and user.password == password:
+        # Correctly create the dictionary without using curly braces for the values
+        user_info = {
+            "ID": user.id,
+            "Name": user.name,
+            "Email": user.email,
+            "Password": user.password
+        }
         
-        user_info = f"ID: {user.id}, Name: {user.name}, Email: {user.email}, Password: {user.password}"
-        
-        return user_info, 200
+        # Use jsonify to correctly return JSON response
+        return jsonify(user_info), 200
     else:
-        return "User not found or incorrect password", 404
+        return jsonify({"message": "User not found or incorrect password"}), 404
 
     
 # Need to create a form or find a new way to todo this. 
@@ -125,6 +132,7 @@ def user_edit():
     new_password = data['new_password']
     
     user = get_user(email)
+    # return {'messag': f'{}'}
     if user and user.password == current_password:
         # Update the user's password
         user.password = new_password
