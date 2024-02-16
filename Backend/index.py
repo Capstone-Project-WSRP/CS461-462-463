@@ -125,6 +125,7 @@ def user_edit():
     new_password = data['new_password']
     
     user = get_user(email)
+    # return {'messag': f'{}'}
     if user and user.password == current_password:
         # Update the user's password
         user.password = new_password
