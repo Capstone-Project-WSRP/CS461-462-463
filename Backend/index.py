@@ -9,16 +9,6 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# MySQL configuration for pymysql and the insecure_user_search endpoint for SQL injection
- # Connect to the database
-connection = pymysql.connect(host='localhost',
-                                port=3333,
-                                user='root',
-                                password='root',
-                                db='test',
-                                charset='utf8mb4',
-                                cursorclass=pymysql.cursors.DictCursor)
-
 db = SQLAlchemy(app)
 
 # Define a model for your table
@@ -45,15 +35,6 @@ class Admin(db.Model):
 def get_user(email):
     return User.query.filter_by(email=email).first()
 
-# """Displays an HTML welcome page for the app"""
-# @app.route('/')
-# def home():
-#     return render_template('welcome.html')
-
-# @app.route('/sign_up')
-# def sign_up():
-#     return render_template('sign_up.html')
-
 @app.route('/create_user', methods=['POST'])
 def create_user():
     
@@ -74,11 +55,6 @@ def create_user():
 
     return {"message": f"{name} was added successfully"}, 201
     
-
-# @app.route('/user_search_page')
-# def show_student_search():
-#     return render_template('user_search.html')
-    
 # This endpoint should open to sql injection 
 @app.route('/insecure_user_search', methods=['GET'])
 def insecure_user_search():
@@ -87,16 +63,25 @@ def insecure_user_search():
     email = data.get('email')
 
     try:
+        # Connect to the database
+        connection = pymysql.connect(host='localhost',
+                                        port=3333,
+                                        user='root',
+                                        password='root',
+                                        db='test',
+                                        charset='utf8mb4',
+                                        cursorclass=pymysql.cursors.DictCursor)
+        
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
-            sql_query = f"SELECT * FROM User WHERE email = '{email}'"
+            sql_query = f"SELECT * FROM user WHERE email = '{email}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
-                response = f"Executed query: {sql_query}\nResult: {result}"
-                return response
+                response = {"Executed query": sql_query,"Result": True}
+                return jsonify(response), 200
             else:
-                return "No user found", 404
+                return jsonify("No user found"), 404
     finally:
         connection.close()
     
