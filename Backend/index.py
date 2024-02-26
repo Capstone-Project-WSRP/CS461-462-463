@@ -56,7 +56,7 @@ def create_user():
     return {"message": f"{name} was added successfully"}, 201
     
 # This endpoint should open to sql injection 
-@app.route('/insecure_user_search', methods=['GET'])
+@app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
     
     data = request.json
