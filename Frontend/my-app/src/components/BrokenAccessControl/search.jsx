@@ -17,6 +17,8 @@ function Search() {
         const data = await response.json();
         setResults([data]); 
       } else {
+        const data = await response.json();
+        alert(data.message)
         console.error('Search failed:', response.statusText);
       }
     } catch (error) {
@@ -45,11 +47,14 @@ function Search() {
         <ul>
           {results.map((user, index) => (
             <li key={index}>
-              Name: {user.Name}, Email: {user.Email}
+              Name: {user.Name} <br/>
+              Email: {user.Email} <br/>
+              Password: {user.Password}
               {/* Display additional user details as needed */}
             </li>
           ))}
         </ul>
+        
       )}
     </div>
   );
