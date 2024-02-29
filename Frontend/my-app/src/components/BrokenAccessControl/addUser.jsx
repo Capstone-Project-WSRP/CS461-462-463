@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddUser = () => {
+const AddUser = ({closePopup}) => {
   // States to hold form data
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -10,16 +10,19 @@ const AddUser = () => {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     try {
-      const response = await fetch('http://localhost:5000/create_user', {
+        closePopup();
+        const response = await fetch('http://localhost:5000/create_user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email, password }),
       });
-      const data = await response.json();
+      
+      const data = await response.json(); 
       if (response.ok) {
-        alert(data.message); // Show success message
+        alert(data.message); // Show success message  
+         
       } else {
         alert(data.error); // Show error message from the server
       }
@@ -27,6 +30,7 @@ const AddUser = () => {
       alert('An error occurred while creating the user.');
       console.error('Error:', error);
     }
+    
   };
 
   return (
