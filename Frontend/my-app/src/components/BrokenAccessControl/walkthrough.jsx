@@ -126,7 +126,7 @@ network tab on the browser devtools.<br>
 src="/Walkthrough_files/image010.jpg"
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"><br>
 <br>
-Now, highlight �password� and click the add button<br>
+Now, highlight $password$ and click the add button<br>
 <br>
 <img border=0 width=624 height=261
 src="/Walkthrough_files/image011.jpg"
@@ -136,7 +136,7 @@ Next, click Payloads. In this section you can add custom payloads, use ones
 provided by Burp Suite (not in the community edition), or you can download and
 add word list you can find on the internet. We will just use a short list that
 we will put in, as this can run for a long time otherwise. <br>
-*Note: Alice�s password is �Alice1234� and Bob�s is �Bob1234�<br>
+*Note: Alice's password is 'Alice1234' and Bob's is 'Bob1234'<br>
 <img border=0 width=624 height=339
 src="/Walkthrough_files/image012.jpg"
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"><br>
