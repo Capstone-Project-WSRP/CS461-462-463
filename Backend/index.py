@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import reset_and_pop_db
 import pymysql
 
 app = Flask(__name__)
@@ -35,6 +34,39 @@ class Admin(db.Model):
 
 def get_user(email):
     return User.query.filter_by(email=email).first()
+
+def Reset():
+    with app.app_context():
+        # Drop all existing tables to reset the database
+        db.drop_all()
+
+        # Recreate all tables
+        db.create_all()
+
+        # List of user data to add
+        users = [
+            {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
+            {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
+            # Add more users as needed
+        ]
+
+        # List of admin data to add
+        admin = [
+            {'name': 'Admin1', 'email': 'admin1@example.com'},
+            {'name': 'Admin2', 'email': 'admin2@example.com'},
+            # Add more admin as needed
+        ]
+
+        # Add users to the database
+        for user_data in users:
+            user = User(name=user_data['name'], email=user_data['email'], password=user_data['password'])
+            db.session.add(user)
+
+        for admin_data in admin:
+            admin = Admin(name=admin_data['name'], email=admin_data['email'])
+            db.session.add(admin)
+        # Commit the changes to the database
+        db.session.commit()
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
@@ -144,7 +176,7 @@ def user_delete():
     
 @app.route('/resetDB', methods=['GET'])
 def reset():
-    reset_and_pop_db
+    Reset()
     return jsonify({'message': 'DB has been reset'}), 200
     
 
