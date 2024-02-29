@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Import useState
 import Search from "./search";
 import BACdecription from "./BACdescription";
-import MyComponent from "./walkthrough";
+import MyComponent from "./walkthrough.jsx";
 import styles from "./BrokenAccessControl.module.css";
 
 const BrokenAccessControl = () => {

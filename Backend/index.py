@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import reset_and_pop_db
 import pymysql
 
 app = Flask(__name__)
@@ -140,6 +141,12 @@ def user_delete():
         return {'message': f'User {email} deleted successfully'}, 200
     else:
         return {"error": "User not found or incorrect password"}, 404
+    
+@app.route('/resetDB', methods=['GET'])
+def reset():
+    reset_and_pop_db
+    return jsonify({'message': 'DB has been reset'}), 200
+    
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
