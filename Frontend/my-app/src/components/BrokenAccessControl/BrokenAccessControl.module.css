@@ -10,3 +10,10 @@
 .description {
   color: #666;
 }
+
+.button {
+  margin-left: 20px;
+  font-size: small;
+  cursor: pointer;
+ 
+}
