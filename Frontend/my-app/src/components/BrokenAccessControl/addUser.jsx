@@ -8,7 +8,7 @@ const AddUser = ({closePopup}) => {
   
   // Function to handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     try {
         closePopup();
         const response = await fetch('http://localhost:5000/create_user', {

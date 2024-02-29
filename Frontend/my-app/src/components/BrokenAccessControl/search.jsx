@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Search() {
-  const [email, setEmail] = useState(''); // Changed to use email
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [results, setResults] = useState([]);
 
@@ -11,11 +11,11 @@ function Search() {
     const url = `http://localhost:5000/user_search/${encodeURIComponent(email)}/${encodeURIComponent(password)}`;
     try {
       const response = await fetch(url, {
-        method: 'GET', // Now using GET method
+        method: 'GET', 
       });
       if (response.ok) {
         const data = await response.json();
-        setResults([data]); // Assuming the backend returns search results as an array
+        setResults([data]); 
       } else {
         console.error('Search failed:', response.statusText);
       }
@@ -28,13 +28,13 @@ function Search() {
     <div>
       <form onSubmit={handleSearch}>
         <input
-          type="email" // Changed to email input for semantic correctness
+          type="email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email"
         />
         <input
-          type="password" // Confirming this is a password input
+          type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter password"
