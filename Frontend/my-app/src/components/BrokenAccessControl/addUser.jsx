@@ -39,7 +39,7 @@ const AddUser = ({closePopup}) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Name:
+            Name
             <input
               type="text"
               value={name}
@@ -50,7 +50,7 @@ const AddUser = ({closePopup}) => {
         </div>
         <div>
           <label>
-            Email:
+            Email
             <input
               type="email"
               value={email}
@@ -61,7 +61,7 @@ const AddUser = ({closePopup}) => {
         </div>
         <div>
           <label>
-            Password:
+            Password
             <input
               type="password"
               value={password}
