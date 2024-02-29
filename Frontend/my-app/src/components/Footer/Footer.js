@@ -14,10 +14,8 @@ const Footer = () => {
       const data = await response.json();
       return alert(data.message);
     } catch (error) {
-      console.error("Error fetching search results:", error);
+      console.error("Error reseting DB:", error);
     }
-
-    // Example: axios.post('/api/reset-db').then(() => alert('Database reset successfully!'));
   };
 
   return (

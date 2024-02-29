@@ -1,5 +1,6 @@
 import React, { useState } from "react"; // Import useState
 import Search from "./search";
+import AddUser from "./addUser.jsx";
 import BACdecription from "./BACdescription";
 import MyComponent from "./walkthrough.jsx";
 import styles from "./BrokenAccessControl.module.css";
@@ -19,8 +20,8 @@ const BrokenAccessControl = () => {
       <h1 className={styles.title}>Broken Access Control</h1>
       <p className={styles.description}>
         <Search />
+        <AddUser />
         <h2>What is Broken Access Control</h2>
-
         {/* Conditionally rendering BACdecription based on isDescriptionVisible */}
         {isDescriptionVisible && <BACdecription />}
         {/* Button to toggle the description */}
