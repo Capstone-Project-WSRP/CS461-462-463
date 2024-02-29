@@ -88,7 +88,7 @@ def create_user():
 
     return {"message": f"{name} was added successfully"}, 201
     
-# This endpoint should open to sql injection 
+# This endpoint be should open to sql injection 
 @app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
     
@@ -126,21 +126,17 @@ def user_search(email, password):
     user = get_user(email)
 
     if user and user.password == password:
-        # Correctly create the dictionary without using curly braces for the values
         user_info = {
             "ID": user.id,
             "Name": user.name,
             "Email": user.email,
             "Password": user.password
         }
-        
-        # Use jsonify to correctly return JSON response
         return jsonify(user_info), 200
     else:
         return jsonify({"message": "User not found or incorrect password"}), 404
 
     
-# Need to create a form or find a new way to todo this. 
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
     # Extract email, current_password, and new_password from JSON body of the request
@@ -150,7 +146,7 @@ def user_edit():
     new_password = data['new_password']
     
     user = get_user(email)
-    # return {'messag': f'{}'}
+    
     if user and user.password == current_password:
         # Update the user's password
         user.password = new_password
