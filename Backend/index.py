@@ -6,7 +6,15 @@ import pymysql
 app = Flask(__name__)
 CORS(app)
 # MySQL configurations using SQLAlchemy
+
+####################### First one is for docker deploy ######################################
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
+#############################################################################################
+
+# This one is for local dev
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+#####################################################################################
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -96,6 +104,14 @@ def insecure_user_search():
     email = data.get('email')
 
     try:
+        # for docker compose to work uncomment this and comment out the other
+        # connection = pymysql.connect(host='localhost',
+        #                                 port=3306,
+        #                                 user='root',
+        #                                 password='root',
+        #                                 db='db',
+        #                                 charset='utf8mb4',
+        #                                 cursorclass=pymysql.cursors.DictCursor)
         # Connect to the database
         connection = pymysql.connect(host='localhost',
                                         port=3333,
@@ -172,10 +188,13 @@ def user_delete():
     
 @app.route('/resetDB', methods=['GET'])
 def reset():
-    Reset()
-    return jsonify({'message': 'DB has been reset'}), 200
+    try:
+        Reset()
+        return jsonify({'message': 'DB has been reset'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
     
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
     
