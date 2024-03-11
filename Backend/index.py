@@ -76,6 +76,7 @@ def Reset():
         # Commit the changes to the database
         db.session.commit()
 
+
 @app.route('/create_user', methods=['POST'])
 def create_user():
     
@@ -95,7 +96,32 @@ def create_user():
     db.session.commit()
 
     return {"message": f"{name} was added successfully"}, 201
-    
+
+
+@app.route('/create_user_sm', methods=['POST'])
+def create_user_sm():
+    data = request.json
+    name = data.get('name')
+    email = data.get('email')
+    password = data.get('password')
+
+    # Check that email is unique
+    existing = get_user(email)
+    if not existing:
+        # Create new User instance and add to database
+        new_user = User(name, email, password)
+        db.session.add(new_user)
+        db.session.commit()
+        return {"message": f"{name} was added successfully"}, 201
+
+    else:
+        return {"message": f"An account is already associated with this "
+                           f"email.\n"
+                           f"Name: {existing.name} \n    Email: "
+                           f"{existing.email} \n  Password: "
+                           f"{existing.password}"}, 201
+
+
 # This endpoint be should open to sql injection 
 @app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
@@ -214,5 +240,5 @@ def reset():
     
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
     
