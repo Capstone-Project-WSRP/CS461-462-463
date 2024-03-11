@@ -152,6 +152,24 @@ def user_search(email, password):
     else:
         return jsonify({"message": "User not found or incorrect password"}), 404
 
+
+
+@app.route('/get_creds/<email>', methods=['GET'])
+def get_creds(email):
+    user = get_user(email)
+
+    if user:
+        user_info = {
+            "ID": user.id,
+            "Name": user.name,
+            "Email": user.email,
+            "Password": user.password
+        }
+        return jsonify(user_info), 200
+    else:
+        return jsonify({"message": "User not found"}), 404
+
+
     
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
@@ -196,5 +214,5 @@ def reset():
     
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
     

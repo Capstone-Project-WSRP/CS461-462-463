@@ -25,7 +25,7 @@ const Footer = () => {
         Reset Database
       </button>
       <div className={styles.createdBy}>
-        Created by Devin Black, Lucas Craig Brown, Justice Kane, Stacey Cattel
+        Created by Devin Black, Lucas Craig Brown, Justice Kane, Stacey Cattell
       </div>
       <div className={styles.date}>Fall 2023</div>
     </footer>
