@@ -39,6 +39,11 @@ const Home = () => {
           </Link>
         </li>
       </ul>
+      <img
+        src="logo_transparent.png"
+        alt="WSRP Logo"
+        style={{ width: "150px", height: "auto" }}
+      />
     </div>
   );
 };
