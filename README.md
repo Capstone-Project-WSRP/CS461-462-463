@@ -8,7 +8,7 @@ Repo for our CS462 capstone project - Website Security Research Project.
 
 - Within the project files, two database connections are specified. It is crucial to comment or uncomment these connections as needed:
 
-  - The first connection, located at the top of a configuration file, is designed for SQLAlchemy.
+  - The first connection, located at the top of index.py, is designed for SQLAlchemy.
   - The second connection, found within the insecure_user_search functionality, is intended for demonstrating SQL injection vulnerabilities.
 
   Both connections are clearly labeled to guide which should be enabled for the project's requirements.
