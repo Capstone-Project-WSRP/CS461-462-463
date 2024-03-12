@@ -28,4 +28,7 @@ Repo for our CS462 capstone project - Website Security Research Project.
 - The site is now operational locally and can be explored to investigate various website security aspects.
 
 By following these instructions, you will have successfully set up the Website Security Research Project locally, enabling a hands-on exploration of security practices and vulnerabilities within a web application context.
+
+
+
 ![alt text](image.png)
