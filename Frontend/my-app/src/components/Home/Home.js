@@ -44,6 +44,8 @@ these vulnerabilities and how to harden web apps to protect against them.
         There will be a hands-on area to work with, as well as a walkthrough provided, so that
         you are not left without guidance when learning about how to exploit the vulnerability.
         <br></br>
+        <br></br>NOTE: It is very important to reset the database (using the "Reset Database" button in the bottom left hand corner, in the web page's footer) on each vulnerability page before proceeding to work with the hands-on section and its corresponding walkthrough. This is necessary in order to produce accurate and expected results.
+        <br></br>
         <br></br>
         Thank you for checking out our project! Happy Hacking!
         <br></br>
