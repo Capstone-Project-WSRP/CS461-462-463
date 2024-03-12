@@ -4,7 +4,7 @@ import styles from './SecurityMisconfiguration.module.css';
 import SMdescription from "./SMdescription";
 import MyComponent from "../SecurityMisconfiguration/walkthrough";
 import ReactDOM from "react-dom";
-import AddUser from "./addUser";
+import InsecureAdd from "./SM_InsecureAdd";
 
 
 const SecurityMisconfiguration = () => {
@@ -42,16 +42,13 @@ const SecurityMisconfiguration = () => {
     containerDiv.id = "popupContainer";
     popupWindow.document.body.appendChild(containerDiv);
 
-    ReactDOM.render(<AddUser closePopup={closePopup} />, containerDiv);
+    ReactDOM.render(<InsecureAdd closePopup={closePopup} />, containerDiv);
   };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Security Misconfiguration</h1>
       <div className={styles.description}>
-        <p>
-          <button onClick={openAddUserPopup}>Add User</button>
-        </p>
         <h2>
           What are Security Misconfigurations?&nbsp;&nbsp;&nbsp;
           <button className={styles.button} onClick={toggleDescription}>
@@ -59,9 +56,20 @@ const SecurityMisconfiguration = () => {
           </button>
           {isDescriptionVisible && <SMdescription />}
         </h2>
-      </div>
+        </div>
+        <h3>
+          Perform an attack
+        </h3>
+        <p> - Please follow the Walkthrough section below to learn how to
+          exploit security misconfiguration in an attack
+          on this web application.<br></br>
+          - Your goal will be to find out the login credentials for an
+          existing user in our database using the "Add User" button below.
+          <br></br><br></br>
+        <button onClick={openAddUserPopup}>Add User</button>
+        </p>
       <div>
-        <h3>Perform this Attack</h3>
+        <h3>Walkthrough</h3>
         <MyComponent />
       </div>
     </div>
