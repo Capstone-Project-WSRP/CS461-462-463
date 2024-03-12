@@ -4,7 +4,7 @@ import styles from './SecurityMisconfiguration.module.css';
 import SMdescription from "./SMdescription";
 import MyComponent from "../SecurityMisconfiguration/walkthrough";
 import ReactDOM from "react-dom";
-import AddUser from "./addUser";
+import InsecureAdd from "./SM_InsecureAdd";
 
 
 const SecurityMisconfiguration = () => {
@@ -42,7 +42,7 @@ const SecurityMisconfiguration = () => {
     containerDiv.id = "popupContainer";
     popupWindow.document.body.appendChild(containerDiv);
 
-    ReactDOM.render(<AddUser closePopup={closePopup} />, containerDiv);
+    ReactDOM.render(<InsecureAdd closePopup={closePopup} />, containerDiv);
   };
 
   return (

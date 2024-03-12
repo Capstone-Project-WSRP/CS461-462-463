@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const AddUser = ({closePopup}) => {
+const InsecureAdd = ({closePopup}) => {
   // States to hold form data
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ const AddUser = ({closePopup}) => {
     event.preventDefault();
     try {
         closePopup();
-        const response = await fetch('http://localhost:5000/create_user_sm', {
+        const response = await fetch('http://localhost:5000/sm_insecure_creation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,6 @@ const AddUser = ({closePopup}) => {
         const data = await response.json();
         if (response.ok) {
             alert(data.message); // Show success message
-
         }
     }
     catch (error) {
@@ -75,4 +74,4 @@ const AddUser = ({closePopup}) => {
   );
 };
 
-export default AddUser;
+export default InsecureAdd;
