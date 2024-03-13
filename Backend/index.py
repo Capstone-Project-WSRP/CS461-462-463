@@ -130,6 +130,7 @@ def sm_insecure_creation():
 def insecure_user_search():
     data = request.json
     email = data.get('email')
+    password = data.get('password')
 
     try:
         # Connect to the database
@@ -143,7 +144,7 @@ def insecure_user_search():
         
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
-            sql_query = f"SELECT * FROM user WHERE email = '{email}'"
+            sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
@@ -246,3 +247,4 @@ def send_static(path):
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
+    
