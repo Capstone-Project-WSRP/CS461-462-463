@@ -37,6 +37,7 @@ function Search() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email"
+          /* What works as input: alice@example.com' --'*/
         />
         <input
           type="password" // Confirming this is a password input
@@ -55,13 +56,6 @@ function Search() {
                   {key} : {user[key]} <br />
                 </div>
               ))}
-              {/* Name: {user.Name}, Email: {user.Email}, */}
-              {/* Email: {JSON.stringify(user.sql_query)} */}
-              {/* Email: {user.Executed_query} */}
-              {/* Email: {user.email} */}
-              {/* Display additional user details as needed */}
-              {/* What works as input: "alice@example.com' UNION SELECT * FROM user WHERE email='alice@example.com". */}
-              {/* What works as input: "alice@example.com'"; "UNION SELECT * FROM user WHERE email='alice@example.com". */}
             </li>
           ))}
         </ul>
