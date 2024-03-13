@@ -61,7 +61,7 @@ const SecurityMisconfiguration = () => {
           Perform an attack
         </h3>
         <p> - Please follow the Walkthrough section below to learn how to
-          exploit security misconfiguration in an attack
+          exploit security misconfigurations in an attack
           on this web application.<br></br>
           - Your goal will be to find out the login credentials for an
           existing user in our database using the "Add User" button below.
