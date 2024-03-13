@@ -12,14 +12,12 @@ CORS(app)
 #############################################################################################
 
 # This one is for local dev
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
 #####################################################################################
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
 
 # Define a model for your table
 class User(db.Model):
@@ -28,11 +26,10 @@ class User(db.Model):
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
 
-    def __init__(self, name, email, password):
+    def __init__(self, name, email,password):
         self.name = name
         self.email = email
         self.password = password
-
 
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -43,10 +40,8 @@ class Admin(db.Model):
         self.name = name
         self.email = email
 
-
 def get_user(email):
     return User.query.filter_by(email=email).first()
-
 
 def Reset():
     with app.app_context():
@@ -58,8 +53,7 @@ def Reset():
 
         # List of user data to add
         users = [
-            {'name': 'Alice', 'email': 'alice@example.com',
-             'password': "Alice1234"},
+            {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
             {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
             # Add more users as needed
         ]
@@ -73,8 +67,7 @@ def Reset():
 
         # Add users to the database
         for user_data in users:
-            user = User(name=user_data['name'], email=user_data['email'],
-                        password=user_data['password'])
+            user = User(name=user_data['name'], email=user_data['email'], password=user_data['password'])
             db.session.add(user)
 
         for admin_data in admin:
@@ -83,57 +76,30 @@ def Reset():
         # Commit the changes to the database
         db.session.commit()
 
-
 @app.route('/create_user', methods=['POST'])
 def create_user():
+    
     data = request.json
     name = data.get('name')
     email = data.get('email')
     password = data.get('password')
-
+    
     # Check that email is unique 
     unique = get_user(email)
     if unique:
         return {"error": "Email already exists"}, 409
-
+    
     # Create new User instance and add to database
     new_user = User(name, email, password)
     db.session.add(new_user)
     db.session.commit()
 
     return {"message": f"{name} was added successfully"}, 201
-
-
-@app.route('/sm_insecure_creation', methods=['POST'])
-def sm_insecure_creation():
-    data = request.json
-    name = data.get('name')
-    email = data.get('email')
-    password = data.get('password')
-
-    # Check that email is unique
-    existing = get_user(email)
-
-    if not existing:
-        # Create new User instance and add to database
-        new_user = User(name, email, password)
-        db.session.add(new_user)
-        db.session.commit()
-        return {"message": f"{name} was added successfully"}, 201
-
-    else:
-        return {"message": "An account is already associated with this email.",
-                "debug_error_message": f"An account is already associated "
-                                       f"with this email - "
-                                       f"Name: {existing.name}, "
-                                       f"Email: {existing.email}, "
-                                       f"Password: {existing.password}"
-                }, 200
-
-
+    
 # This endpoint be should open to sql injection 
 @app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
+    
     data = request.json
     email = data.get('email')
 
@@ -148,27 +114,26 @@ def insecure_user_search():
         #                                 cursorclass=pymysql.cursors.DictCursor)
         # Connect to the database
         connection = pymysql.connect(host='localhost',
-                                     port=3333,
-                                     user='root',
-                                     password='root',
-                                     db='test',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
-
+                                        port=3333,
+                                        user='root',
+                                        password='root',
+                                        db='test',
+                                        charset='utf8mb4',
+                                        cursorclass=pymysql.cursors.DictCursor)
+        
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
             sql_query = f"SELECT * FROM user WHERE email = '{email}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
-                response = {"Executed query": sql_query, "Result": True}
+                response = {"Executed query": sql_query,"Result": True}
                 return jsonify(response), 200
             else:
                 return jsonify("No user found"), 404
     finally:
         connection.close()
-
-
+    
 # Insecure route that will give you data about a user
 # It is password protected but URL is visible giving far
 # to much information about the endpoint. 
@@ -185,10 +150,27 @@ def user_search(email, password):
         }
         return jsonify(user_info), 200
     else:
-        return jsonify(
-            {"message": "User not found or incorrect password"}), 404
+        return jsonify({"message": "User not found or incorrect password"}), 404
 
 
+
+@app.route('/get_creds/<email>', methods=['GET'])
+def get_creds(email):
+    user = get_user(email)
+
+    if user:
+        user_info = {
+            "ID": user.id,
+            "Name": user.name,
+            "Email": user.email,
+            "Password": user.password
+        }
+        return jsonify(user_info), 200
+    else:
+        return jsonify({"message": "User not found"}), 404
+
+
+    
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
     # Extract email, current_password, and new_password from JSON body of the request
@@ -196,9 +178,9 @@ def user_edit():
     email = data['email']
     current_password = data['current_password']
     new_password = data['new_password']
-
+    
     user = get_user(email)
-
+    
     if user and user.password == current_password:
         # Update the user's password
         user.password = new_password
@@ -206,15 +188,14 @@ def user_edit():
         return {'message': f'Password updated successfully for {email}'}, 200
     else:
         return {"error": "Incorrect email or password"}, 404
-
-
+   
 @app.route('/user_delete', methods=['DELETE'])
 def user_delete():
     # Extract email and password from JSON body of the request
     data = request.json
     email = data['email']
     password = data['password']
-
+    
     user = get_user(email)
     if user and user.password == password:
         db.session.delete(user)
@@ -222,34 +203,16 @@ def user_delete():
         return {'message': f'User {email} deleted successfully'}, 200
     else:
         return {"error": "User not found or incorrect password"}, 404
-
-
+    
 @app.route('/resetDB', methods=['GET'])
 def reset():
     try:
         Reset()
-        return jsonify({'message': 'Database has been successfully reset'}),\
-               200
+        return jsonify({'message': 'DB has been reset'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-@app.route('/fetch_file', methods=['POST'])
-def fetch_file():
-    url = request.json.get('url')
-
-    try:
-        response = requests.get(url)
-        if response.ok:
-            file_content = response.content.decode('utf-8')
-            return jsonify({'file_content': file_content}), 200
-        else:
-            return jsonify({'error': 'Failed to fetch file'}), 500
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/static/<path:path>')
-def send_static(path):
-    return send_from_directory('static', path)
+    
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
+    
