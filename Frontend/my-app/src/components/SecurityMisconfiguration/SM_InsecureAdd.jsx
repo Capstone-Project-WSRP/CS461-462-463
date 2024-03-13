@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const AddUser = ({closePopup}) => {
+const InsecureAdd = ({closePopup}) => {
   // States to hold form data
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,37 +12,22 @@ const AddUser = ({closePopup}) => {
     event.preventDefault();
     try {
         closePopup();
-        const response = await fetch('http://localhost:5000/create_user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
-      
-      const data = await response.json();
-      if (response.ok) {
-        alert(data.message); // Show success message  
-         
-      } else {
-        alert(data.error); // Show error message from the server
-      }
-    } catch (error) {
-      const url = `http://localhost:5000/get_creds/${encodeURIComponent(email)}`;
-      try {
-          const response = await fetch(url, {method: 'GET',});
-          if (response.ok) {
-              const account_results = await response.json();
-              alert(account_results);
-          } else {
-              const data = await response.json();
-              alert(data.message)
-              console.error('Search failed:', response.statusText);
-          }
-      }
-      catch (error) {
-          console.error('Error fetching search results:', error);
-      }
+        const response = await fetch('http://localhost:5000/sm_insecure_creation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name, email, password}),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(data.message); // Show success message
+        }
+    }
+    catch (error) {
+      alert('An error occurred while creating the user.');
+      console.error('Error:', error);
     }
   };
 
@@ -89,4 +74,4 @@ const AddUser = ({closePopup}) => {
   );
 };
 
-export default AddUser;
+export default InsecureAdd;
