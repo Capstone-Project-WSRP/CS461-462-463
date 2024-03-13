@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function Search() {
   const [email, setEmail] = useState(''); // Changed to use email
+  const [password, setPassword] = useState('');
   const [results, setResults] = useState([]);
 
   const handleSearch = async (event) => {
@@ -14,7 +15,7 @@ function Search() {
         headers: {
           'Content-Type': 'application/json',
         }, 
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify({ email: email, password: password }),
       });
 
       if (response.ok) {
@@ -37,16 +38,27 @@ function Search() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email"
         />
+        <input
+          type="password" // Confirming this is a password input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password"
+        />
         <button type="submit">Search</button>
       </form>
       {results.length > 0 && (
         <ul>
           {results.map((user, index) => (
             <li key={index}>
+              {Object.keys(user).map((key, subIndex) => (
+                <div key={subIndex}>
+                  {key} : {user[key]} <br />
+                </div>
+              ))}
               {/* Name: {user.Name}, Email: {user.Email}, */}
               {/* Email: {JSON.stringify(user.sql_query)} */}
               {/* Email: {user.Executed_query} */}
-              Email: {user.email}
+              {/* Email: {user.email} */}
               {/* Display additional user details as needed */}
               {/* What works as input: "alice@example.com' UNION SELECT * FROM user WHERE email='alice@example.com". */}
               {/* What works as input: "alice@example.com'"; "UNION SELECT * FROM user WHERE email='alice@example.com". */}
