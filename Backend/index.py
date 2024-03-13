@@ -228,7 +228,8 @@ def user_delete():
 def reset():
     try:
         Reset()
-        return jsonify({'message': 'DB has been reset'}), 200
+        return jsonify({'message': 'Database has been successfully reset'}),\
+               200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

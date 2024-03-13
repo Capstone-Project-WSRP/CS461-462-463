@@ -205,7 +205,7 @@ documented, and tested before being implemented in production environments.</p>
 
 <p class=MsoNormal><u>V. Case Studies</u></p>
 
-<p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>1. </p>
+<p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>1. TODO </p>
 
 <p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>&nbsp;</p>
 

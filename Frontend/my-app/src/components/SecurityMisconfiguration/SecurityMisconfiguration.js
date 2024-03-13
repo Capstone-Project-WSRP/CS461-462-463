@@ -65,6 +65,8 @@ const SecurityMisconfiguration = () => {
           on this web application.<br></br>
           - Your goal will be to find out the login credentials for an
           existing user in our database using the "Add User" button below.
+          <br></br>
+          - Don't forget to reset the database before you begin!
           <br></br><br></br>
         <button onClick={openAddUserPopup}>Add User</button>
         </p>

@@ -14,7 +14,7 @@ const Footer = () => {
       const data = await response.json();
       return alert(data.message);
     } catch (error) {
-      console.error("Error resetting DB:", error);
+      console.error("Error resetting database:", error);
     }
   };
 
