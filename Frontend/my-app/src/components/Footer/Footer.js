@@ -14,7 +14,7 @@ const Footer = () => {
       const data = await response.json();
       return alert(data.message);
     } catch (error) {
-      console.error("Error resetting database:", error);
+      console.error("Error reseting DB:", error);
     }
   };
 
@@ -27,7 +27,7 @@ const Footer = () => {
       <div className={styles.createdBy}>
         Created by Devin Black, Lucas Craig Brown, Justice Kane, Stacey Cattell
       </div>
-      <div className={styles.date}>2023-2024</div>
+      <div className={styles.date}>Fall 2023</div>
     </footer>
   );
 };
