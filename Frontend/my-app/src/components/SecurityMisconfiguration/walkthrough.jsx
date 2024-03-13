@@ -356,7 +356,7 @@ from the server. The response status code is a “201 CREATED,” which indicate
 that we were able to successfully add a user to our database [1]. The response
 body is shown under our request. You can see the success message that appeared in
 the alert pop-up upon successful user creation on our web application from
-earlier [2]</p>
+earlier [2].</p>
 
 <p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
 
