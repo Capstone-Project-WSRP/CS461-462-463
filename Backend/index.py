@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import pymysql
+import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -266,23 +267,23 @@ def reset():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# @app.route('/fetch_file', methods=['POST'])
-# def fetch_file():
-#     url = request.json.get('url')
-#
-#     try:
-#         response = requests.get(url)
-#         if response.ok:
-#             file_content = response.content.decode('utf-8')
-#             return jsonify({'file_content': file_content}), 200
-#         else:
-#             return jsonify({'error': 'Failed to fetch file'}), 500
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
-#
-# @app.route('/static/<path:path>')
-# def send_static(path):
-#     return send_from_directory('static', path)
+@app.route('/fetch_file', methods=['POST'])
+def fetch_file():
+    url = request.json.get('url')
+
+    try:
+        response = requests.get(url)
+        if response.ok:
+            file_content = response.content.decode('utf-8')
+            return jsonify({'file_content': file_content}), 200
+        else:
+            return jsonify({'error': 'Failed to fetch file'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
