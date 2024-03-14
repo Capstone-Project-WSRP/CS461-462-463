@@ -224,6 +224,39 @@ def user_delete():
         return {"error": "User not found or incorrect password"}, 404
 
 
+# This endpoint should be open to sql injection.
+@app.route('/insecure_user_search', methods=['POST'])
+def insecure_user_search():
+    data = request.json
+    email = data.get('email')
+    password = data.get('password')
+
+    try:
+        # Connect to the database
+        connection = pymysql.connect(host='localhost',
+                                     port=3333,
+                                     user='root',
+                                     password='root',
+                                     db='website_security_database_ERD',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+
+        with connection.cursor() as cursor:
+            # Insecure way of forming SQL query - directly inserting user input into the query
+            sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
+            cursor.execute(sql_query)
+            result = cursor.fetchone()
+            if result:
+                # response = {"Executed_query": sql_query, "Result": True}
+                response = result
+                print("response:", response)
+                return jsonify(response), 200
+            else:
+                return jsonify("No user found"), 404
+    finally:
+        connection.close()
+
+
 @app.route('/resetDB', methods=['GET'])
 def reset():
     try:
@@ -233,23 +266,23 @@ def reset():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/fetch_file', methods=['POST'])
-def fetch_file():
-    url = request.json.get('url')
-
-    try:
-        response = requests.get(url)
-        if response.ok:
-            file_content = response.content.decode('utf-8')
-            return jsonify({'file_content': file_content}), 200
-        else:
-            return jsonify({'error': 'Failed to fetch file'}), 500
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/static/<path:path>')
-def send_static(path):
-    return send_from_directory('static', path)
+# @app.route('/fetch_file', methods=['POST'])
+# def fetch_file():
+#     url = request.json.get('url')
+#
+#     try:
+#         response = requests.get(url)
+#         if response.ok:
+#             file_content = response.content.decode('utf-8')
+#             return jsonify({'file_content': file_content}), 200
+#         else:
+#             return jsonify({'error': 'Failed to fetch file'}), 500
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
+#
+# @app.route('/static/<path:path>')
+# def send_static(path):
+#     return send_from_directory('static', path)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
