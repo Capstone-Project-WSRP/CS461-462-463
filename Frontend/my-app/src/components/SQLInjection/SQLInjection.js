@@ -1,14 +1,43 @@
-// SQLInjection.js
-import React from "react";
+import React, { useState } from "react"; // Import useState.
+import Search from "./SQLInjectionSearch";
 import styles from "./SQLInjectionmodule.css";
+import SQLdescription from "./SQLdescription.jsx";
+import MyComponent from "./walkthrough.jsx";
+
 const SQLInjection = () => {
+    // State to manage visibility of BACdescription.
+    const [isDescriptionVisible, setDescriptionVisible] = useState(false);
+
+    // Toggle function.
+    const toggleDescription = () => {
+      setDescriptionVisible(!isDescriptionVisible);
+    };
+
+
+  console.log("SQLInjection component rendered");
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>SQL Injection</h1>
       <p className={styles.description}>
-        SQL Injection occurs when an attacker can manipulate a SQL query to
-        execute unintended commands on the database. In this simulation, ....:
+        <Search />
+        <br></br>
+        <h2>What are SQL Injections?</h2>
+
+        {/* Conditionally rendering "SQLdescription" based on "isDescriptionVisible". */}
+        {isDescriptionVisible && <SQLdescription />}
+        {/* Button to toggle the description. */}
+        <button className={styles.button} onClick={toggleDescription}>
+            {isDescriptionVisible ? "Hide" : "Show"}
+        </button>
+        <br></br>
       </p>
+      <p>
+        <h2>Perform this Attack</h2>
+        <MyComponent />
+      </p>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 };
