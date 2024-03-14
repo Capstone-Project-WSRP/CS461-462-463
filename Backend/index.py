@@ -95,45 +95,41 @@ def create_user():
     db.session.commit()
 
     return {"message": f"{name} was added successfully"}, 201
-    
-# This endpoint be should open to sql injection 
+
+
+# This endpoint should be open to sql injection.
 @app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
-    
     data = request.json
     email = data.get('email')
+    password = data.get('password')
 
     try:
-        # for docker compose to work uncomment this and comment out the other
-        # connection = pymysql.connect(host='localhost',
-        #                                 port=3306,
-        #                                 user='root',
-        #                                 password='root',
-        #                                 db='db',
-        #                                 charset='utf8mb4',
-        #                                 cursorclass=pymysql.cursors.DictCursor)
         # Connect to the database
         connection = pymysql.connect(host='localhost',
-                                        port=3333,
-                                        user='root',
-                                        password='root',
-                                        db='test',
-                                        charset='utf8mb4',
-                                        cursorclass=pymysql.cursors.DictCursor)
-        
+                                     port=3333,
+                                     user='root',
+                                     password='root',
+                                     db='website_security_database_ERD',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
-            sql_query = f"SELECT * FROM user WHERE email = '{email}'"
+            sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
-                response = {"Executed query": sql_query,"Result": True}
+                # response = {"Executed_query": sql_query, "Result": True}
+                response = result
+                print("response:", response)
                 return jsonify(response), 200
             else:
                 return jsonify("No user found"), 404
     finally:
         connection.close()
-    
+
+
 # Insecure route that will give you data about a user
 # It is password protected but URL is visible giving far
 # to much information about the endpoint. 
