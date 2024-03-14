@@ -9,12 +9,11 @@ CORS(app)
 # MySQL configurations using SQLAlchemy
 
 ####################### First one is for docker deploy ######################################
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
 #############################################################################################
 
 # This one is for local dev
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
 #####################################################################################
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -137,32 +136,35 @@ def sm_insecure_creation():
 def insecure_user_search():
     data = request.json
     email = data.get('email')
+    password = data.get('password')
 
     try:
         # for docker compose to work uncomment this and comment out the other
-        # connection = pymysql.connect(host='localhost',
-        #                                 port=3306,
-        #                                 user='root',
-        #                                 password='root',
-        #                                 db='db',
-        #                                 charset='utf8mb4',
-        #                                 cursorclass=pymysql.cursors.DictCursor)
-        # Connect to the database
-        connection = pymysql.connect(host='localhost',
-                                     port=3333,
+        connection = pymysql.connect(host='db',
+                                     port=3306,
                                      user='root',
                                      password='root',
                                      db='test',
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
+        # Connect to the database
+        # connection = pymysql.connect(host='localhost',
+        #                              port=3333,
+        #                              user='root',
+        #                              password='root',
+        #                              db='test',
+        #                              charset='utf8mb4',
+        #                              cursorclass=pymysql.cursors.DictCursor)
 
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
-            sql_query = f"SELECT * FROM user WHERE email = '{email}'"
+            sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
-                response = {"Executed query": sql_query, "Result": True}
+                # response = {"Executed_query": sql_query, "Result": True}
+                response = result
+                print("response:", response)
                 return jsonify(response), 200
             else:
                 return jsonify("No user found"), 404
@@ -225,47 +227,15 @@ def user_delete():
         return {"error": "User not found or incorrect password"}, 404
 
 
-# This endpoint should be open to sql injection.
-@app.route('/insecure_user_search', methods=['POST'])
-def insecure_user_search():
-    data = request.json
-    email = data.get('email')
-    password = data.get('password')
-
-    try:
-        # Connect to the database
-        connection = pymysql.connect(host='localhost',
-                                     port=3333,
-                                     user='root',
-                                     password='root',
-                                     db='website_security_database_ERD',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
-
-        with connection.cursor() as cursor:
-            # Insecure way of forming SQL query - directly inserting user input into the query
-            sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
-            cursor.execute(sql_query)
-            result = cursor.fetchone()
-            if result:
-                # response = {"Executed_query": sql_query, "Result": True}
-                response = result
-                print("response:", response)
-                return jsonify(response), 200
-            else:
-                return jsonify("No user found"), 404
-    finally:
-        connection.close()
-
-
 @app.route('/resetDB', methods=['GET'])
 def reset():
     try:
         Reset()
-        return jsonify({'message': 'Database has been successfully reset'}),\
+        return jsonify({'message': 'Database has been successfully reset'}), \
                200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 @app.route('/fetch_file', methods=['POST'])
 def fetch_file():
@@ -281,9 +251,11 @@ def fetch_file():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @app.route('/static/<path:path>')
 def send_static(path):
     return send_from_directory('static', path)
 
+
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
