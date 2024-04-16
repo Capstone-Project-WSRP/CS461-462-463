@@ -1,6 +1,8 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, abort, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import pymysql
 import requests
 
@@ -20,7 +22,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,  # This function uses the client IP address for rate limiting
+    default_limits=["200 per day", "50 per hour"]
+)
 # Define a model for your table
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -190,7 +196,27 @@ def user_search(email, password):
     else:
         return jsonify(
             {"message": "User not found or incorrect password"}), 404
+    
+# Secure user search
+@app.route('/user_search_secure', methods=['POST'])
+@limiter.limit("5 per minute")
+def user_search_secure():
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+    if not email or not password:
+        abort(400, description="Missing email or password")
 
+    user = get_user(email)
+    if user and user.password  == password:
+        user_info = {
+            "ID: ": user.id,
+            "Name: ": user.name,
+            "Email: ": user.email
+        }
+        return jsonify(user_info), 200
+    else:
+        return jsonify({"message": "Invalid login credentials"}), 401
 
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
