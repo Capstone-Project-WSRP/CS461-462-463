@@ -4,3 +4,4 @@ pymysql==1.0.2
 flask-cors
 pyopenssl
 requests==2.26.0
+FLask-Limiter
