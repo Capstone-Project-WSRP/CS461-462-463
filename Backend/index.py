@@ -9,11 +9,11 @@ CORS(app)
 # MySQL configurations using SQLAlchemy
 
 ####################### First one is for docker deploy ######################################
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
 #############################################################################################
 
 # This one is for local dev
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
 #####################################################################################
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -140,21 +140,21 @@ def insecure_user_search():
 
     try:
         # for docker compose to work uncomment this and comment out the other
-        connection = pymysql.connect(host='db',
-                                     port=3306,
-                                     user='root',
-                                     password='root',
-                                     db='test',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
-        # Connect to the database
-        # connection = pymysql.connect(host='localhost',
-        #                              port=3333,
+        # connection = pymysql.connect(host='db',
+        #                              port=3306,
         #                              user='root',
         #                              password='root',
         #                              db='test',
         #                              charset='utf8mb4',
         #                              cursorclass=pymysql.cursors.DictCursor)
+        # Connect to the database for dev
+        connection = pymysql.connect(host='localhost',
+                                     port=3333,
+                                     user='root',
+                                     password='root',
+                                     db='test',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
 
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
