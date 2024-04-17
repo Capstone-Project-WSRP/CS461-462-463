@@ -1,6 +1,6 @@
 from flask import Flask, abort, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import pymysql
@@ -201,22 +201,26 @@ def user_search(email, password):
 @app.route('/user_search_secure', methods=['POST'])
 @limiter.limit("5 per minute")
 def user_search_secure():
-    data = request.json
-    email = data.get("email")
-    password = data.get("password")
-    if not email or not password:
-        abort(400, description="Missing email or password")
+    if request.method == 'POST':
+        data = request.json
+        email = data.get("email")
+        password = data.get("password")
+        if not email or not password:
+            abort(400, description="Missing email or password")
 
-    user = get_user(email)
-    if user and user.password  == password:
-        user_info = {
-            "ID: ": user.id,
-            "Name: ": user.name,
-            "Email: ": user.email
-        }
-        return jsonify(user_info), 200
+        user = get_user(email)
+        if user and user.password == password:
+            user_info = {
+                "ID": user.id,
+                "Name": user.name,
+                "Email": user.email
+            }
+            return jsonify(user_info), 200
+        else:
+            return jsonify({"message": "Invalid login credentials"}), 401
     else:
-        return jsonify({"message": "Invalid login credentials"}), 401
+        abort(405)  # Method Not Allowed for non-POST requests
+
 
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
