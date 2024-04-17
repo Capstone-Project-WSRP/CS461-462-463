@@ -20,10 +20,12 @@ function Search() {
       } else {
         const data = await response.json();
         setError(data.message); // Set error message if request fails
+        setResults([]); // Clear results state if request is not successful
         console.error('Search failed:', response.statusText);
       }
     } catch (error) {
       setError('Error fetching search results:', error); // Set error message for network errors
+      setResults([]); // Clear results state if request is not successful
       console.error('Error fetching search results:', error);
     }
   };
@@ -50,10 +52,13 @@ function Search() {
           const data = await response.json();
           setError(data.message); // Set error message for other error cases
         }
+        setResults([]); // Clear results state if request is not successful
         console.error('Secure search failed:', response.statusText);
       }
+      
     } catch (error) {
       setError('Error performing secure search:', error); // Set error message for network errors
+      setResults([]); // Clear results state if request is not successful
       console.error('Error performing secure search:', error);
     }
   };
