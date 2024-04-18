@@ -216,6 +216,10 @@ alert with a success message.</p>
 id="Picture 10" src="SM_walkthrough_files/fig7.png"></p>
 
 <p class=MsoListParagraphCxSpMiddle><i>Fig 2.3 – User creation was successful</i></p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 <p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>4.<span
@@ -232,6 +236,10 @@ account is tied to the unique email address.</p>
 <p class=MsoListParagraphCxSpMiddle><img border=0 width=219 height=300
 id="Picture 11" src="SM_walkthrough_files/fig8.png"
 alt="A screenshot of a login screen&#10;&#10;Description automatically generated"></p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 <p class=MsoListParagraphCxSpMiddle><i>Fig 2.4 – Attempting to create a user
 with an email that is already registered</i></p>
 
@@ -290,6 +298,10 @@ send to the server. Please refer to the image below for guidance.</p>
 <p class=MsoListParagraphCxSpMiddle><img border=0 width=702 height=304.5
 id="Picture 14" src="SM_walkthrough_files/fig11.png"
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 <p class=MsoListParagraphCxSpMiddle><i>Fig 3.2 – Outlined components that must
 be entered to create a request</i></p>
 

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 const htmlFile = `
 <html>
 
@@ -283,10 +287,18 @@ world, prioritizing robust access control is not an option; it's a necessity.</p
 `;
 
 
+<<<<<<< HEAD
 function BACdescription() {
+=======
+function BACdecription() {
+>>>>>>> main
     return (
       <div dangerouslySetInnerHTML={{ __html: htmlFile }} />
     );
   }
 
+<<<<<<< HEAD
   export default BACdescription
+=======
+  export default BACdecription
+>>>>>>> main

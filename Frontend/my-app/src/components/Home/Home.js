@@ -7,11 +7,16 @@ const Home = () => {
     <div className={styles.homeContainer}>
       <h1 className={styles.title}>Welcome to WSRP React App</h1>
       <p className={styles.description}>
+<<<<<<< HEAD
         This is a Website Security Research Project (WSRP) simulation built with 
+=======
+        This is a Website Security Research Project (WSRP) simulation built with
+>>>>>>> main
         React for educational purposes.
       </p>
       <h2>Introduction</h2>
       <p className={styles.description}>
+<<<<<<< HEAD
         Web applications are insecure, and due to these vulnerabilities, there have been
         numerous severely damaging data breaches in recent history. Currently, development is
         happening at a rapid pace that security professionals cannot keep up with. There are many
@@ -21,6 +26,17 @@ const Home = () => {
         project, we will study some of the most common vulnerabilities relating to data integrity
         and account breaches in order to create a “how-to” web application and guide, to demonstrate
         these vulnerabilities and how to harden web apps to protect against them.
+=======
+          Web applications are insecure, and due to these vulnerabilities, there have been
+numerous severely damaging data breaches in recent history. Currently, development is
+happening at a rapid pace that security professionals cannot keep up with. There are many
+points of weakness in new tech due to its rapid development and how the threat landscape
+is constantly evolving. Developers and security professionals have a need to fortify against
+these security vulnerabilities for the sake of both their companies and their users. In this
+project, we will study some of the most common vulnerabilities relating to data integrity
+and account breaches in order to create a “how-to” web application and guide, to demonstrate
+these vulnerabilities and how to harden web apps to protect against them.
+>>>>>>> main
         <br></br>
         <br></br>
           By presenting clear, step-by-step instructions and immediate access to necessary tools within our platform, we streamline the learning process and eliminate the need for users to navigate external sources. This approach could provide a consolidated and comprehensive resource that significantly reduces search time and ensures users have consistent and reliable guidance at their fingertips. Envision it as a comprehensive hub for beginner-level cybersecurity training that is up in a manner that promotes user-friendliness. Our product's direct guide promotes a more structured and efficient learning experience, offering users a unified platform for learning and applying cybersecurity measures. It also emphasizes self-sufficiency by providing the user with the tools and knowledge to perform the vulnerability. The streamlined design alleviates some challenges inherent in mastering a new, complex skill like cybersecurity.
@@ -44,8 +60,12 @@ const Home = () => {
         There will be a hands-on area to work with, as well as a walkthrough provided, so that
         you are not left without guidance when learning about how to exploit the vulnerability.
         <br></br>
+<<<<<<< HEAD
         <br></br>
         NOTE: It is very important to reset the database (using the "Reset Database" button in the bottom left hand corner, in the web page's footer) on each vulnerability page before proceeding to work with the hands-on section and its corresponding walkthrough. This is necessary in order to produce accurate and expected results.
+=======
+        <br></br>NOTE: It is very important to reset the database (using the "Reset Database" button in the bottom left hand corner, in the web page's footer) on each vulnerability page before proceeding to work with the hands-on section and its corresponding walkthrough. This is necessary in order to produce accurate and expected results.
+>>>>>>> main
         <br></br>
         <br></br>
         Thank you for checking out our project! Happy Hacking!

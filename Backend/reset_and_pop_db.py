@@ -2,7 +2,10 @@
 # tables and some data
 
 from index import app, db, User, Admin 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 def Reset():
     with app.app_context():
         # Drop all existing tables to reset the database

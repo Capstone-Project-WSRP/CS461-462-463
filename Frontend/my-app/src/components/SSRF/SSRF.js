@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SSRF.module.css';
 import SSRFdescription from './SSSRFdescription';
+<<<<<<< HEAD
 import MyComponent from "./walkthrough";
+=======
+import MyComponent from "./walkthrough"
+>>>>>>> main
 
 const SSRF = () => {
   const [url, setUrl] = useState('');
@@ -43,7 +47,11 @@ const SSRF = () => {
       <p className={styles.description}>
         SSRF occurs when an attacker can make the server perform requests on their behalf, potentially to internal resources.
         In this simulation, we are trying to fetch a file that is server-side that contains the passwords of the users in the database. 
+<<<<<<< HEAD
         We are going to do this doing pen testing and the server is going to give us some feedback as we do it.
+=======
+        We are going to do this doing pen testing and the server is going to give us some feedback as we do it.   
+>>>>>>> main
       </p>
       <div>
         <input

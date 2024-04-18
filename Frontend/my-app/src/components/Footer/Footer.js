@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+<<<<<<< HEAD
   // Handler function to reset the database.
   const handleResetDB = async (event) => {
     event.preventDefault();
@@ -10,6 +11,15 @@ const Footer = () => {
     try {
       const response = await fetch(url, {
         method: "GET", // Now using GET method.
+=======
+  // Handler function to reset the database
+  const handleResetDB = async (event) => {
+    event.preventDefault();
+    const url = `http://localhost:5000/resetDB`;
+    try {
+      const response = await fetch(url, {
+        method: "GET", // Now using GET method
+>>>>>>> main
       });
       const data = await response.json();
       return alert(data.message);

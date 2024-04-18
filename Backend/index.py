@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
@@ -12,11 +13,41 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/website_security_database_ERD'
 #####################################################################################
 
+=======
+from flask import Flask, abort, request, jsonify, send_from_directory
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS, cross_origin
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+import pymysql
+import requests
+
+app = Flask(__name__)
+CORS(app)
+# MySQL configurations using SQLAlchemy
+
+####################### First one is for docker deploy ######################################
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
+#############################################################################################
+
+# This one is for local dev
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+#####################################################################################
+
+>>>>>>> main
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+<<<<<<< HEAD
 
+=======
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,  # This function uses the client IP address for rate limiting
+    default_limits=["200 per day", "50 per hour"]
+)
+>>>>>>> main
 # Define a model for your table
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -46,6 +77,7 @@ def get_user(email):
 
 def Reset():
     with app.app_context():
+<<<<<<< HEAD
         # Drop all existing tables to reset the database.
         db.drop_all()
 
@@ -69,12 +101,43 @@ def Reset():
         # Add users to the database.
         for user_data in users:
             user = User(name=user_data['name'], email=user_data['email'], password=user_data['password'])
+=======
+        # Drop all existing tables to reset the database
+        db.drop_all()
+
+        # Recreate all tables
+        db.create_all()
+
+        # List of user data to add
+        users = [
+            {'name': 'Alice', 'email': 'alice@example.com',
+             'password': "Alice1234"},
+            {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
+            # Add more users as needed
+        ]
+
+        # List of admin data to add
+        admin = [
+            {'name': 'Admin1', 'email': 'admin1@example.com'},
+            {'name': 'Admin2', 'email': 'admin2@example.com'},
+            # Add more admin as needed
+        ]
+
+        # Add users to the database
+        for user_data in users:
+            user = User(name=user_data['name'], email=user_data['email'],
+                        password=user_data['password'])
+>>>>>>> main
             db.session.add(user)
 
         for admin_data in admin:
             admin = Admin(name=admin_data['name'], email=admin_data['email'])
             db.session.add(admin)
+<<<<<<< HEAD
         # Commit the changes to the database.
+=======
+        # Commit the changes to the database
+>>>>>>> main
         db.session.commit()
 
 
@@ -84,6 +147,7 @@ def create_user():
     name = data.get('name')
     email = data.get('email')
     password = data.get('password')
+<<<<<<< HEAD
     
     # Check that email is unique 
     unique = get_user(email)
@@ -95,6 +159,19 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
 
+=======
+
+    # Check that email is unique 
+    unique = get_user(email)
+    if unique:
+        return {"error": "Email already exists"}, 409
+
+    # Create new User instance and add to database
+    new_user = User(name, email, password)
+    db.session.add(new_user)
+    db.session.commit()
+
+>>>>>>> main
     return {"message": f"{name} was added successfully"}, 201
 
 
@@ -124,8 +201,13 @@ def sm_insecure_creation():
                                        f"Password: {existing.password}"
                 }, 200
 
+<<<<<<< HEAD
     
 # This endpoint should be open to sql injection.
+=======
+
+# This endpoint be should open to sql injection 
+>>>>>>> main
 @app.route('/insecure_user_search', methods=['POST'])
 def insecure_user_search():
     data = request.json
@@ -133,22 +215,45 @@ def insecure_user_search():
     password = data.get('password')
 
     try:
+<<<<<<< HEAD
         # Connect to the database
+=======
+        # for docker compose to work uncomment this and comment out the other
+        # connection = pymysql.connect(host='db',
+        #                              port=3306,
+        #                              user='root',
+        #                              password='root',
+        #                              db='test',
+        #                              charset='utf8mb4',
+        #                              cursorclass=pymysql.cursors.DictCursor)
+        # Connect to the database for dev
+>>>>>>> main
         connection = pymysql.connect(host='localhost',
                                      port=3333,
                                      user='root',
                                      password='root',
+<<<<<<< HEAD
                                      db='website_security_database_ERD',
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         
+=======
+                                     db='test',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+
+>>>>>>> main
         with connection.cursor() as cursor:
             # Insecure way of forming SQL query - directly inserting user input into the query
             sql_query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{password}'"
             cursor.execute(sql_query)
             result = cursor.fetchone()
             if result:
+<<<<<<< HEAD
                 #response = {"Executed_query": sql_query, "Result": True}
+=======
+                # response = {"Executed_query": sql_query, "Result": True}
+>>>>>>> main
                 response = result
                 print("response:", response)
                 return jsonify(response), 200
@@ -166,13 +271,17 @@ def user_search(email, password):
     user = get_user(email)
 
     if user and user.password == password:
+<<<<<<< HEAD
         # Correctly create the dictionary without using curly braces for the values.
+=======
+>>>>>>> main
         user_info = {
             "ID": user.id,
             "Name": user.name,
             "Email": user.email,
             "Password": user.password
         }
+<<<<<<< HEAD
         
         # Use jsonify to correctly return JSON response.
         return jsonify(user_info), 200
@@ -181,6 +290,38 @@ def user_search(email, password):
 
 
 # Need to create a form or find a new way to todo this. 
+=======
+        return jsonify(user_info), 200
+    else:
+        return jsonify(
+            {"message": "User not found or incorrect password"}), 404
+    
+# Secure user search
+@app.route('/user_search_secure', methods=['POST'])
+@limiter.limit("5 per minute")
+def user_search_secure():
+    if request.method == 'POST':
+        data = request.json
+        email = data.get("email")
+        password = data.get("password")
+        if not email or not password:
+            abort(400, description="Missing email or password")
+
+        user = get_user(email)
+        if user and user.password == password:
+            user_info = {
+                "ID": user.id,
+                "Name": user.name,
+                "Email": user.email
+            }
+            return jsonify(user_info), 200
+        else:
+            return jsonify({"message": "Invalid login credentials"}), 401
+    else:
+        abort(405)  # Method Not Allowed for non-POST requests
+
+
+>>>>>>> main
 @app.route('/user_edit', methods=['PUT'])
 def user_edit():
     # Extract email, current_password, and new_password from JSON body of the request
@@ -188,7 +329,11 @@ def user_edit():
     email = data['email']
     current_password = data['current_password']
     new_password = data['new_password']
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> main
     user = get_user(email)
 
     if user and user.password == current_password:
@@ -206,7 +351,11 @@ def user_delete():
     data = request.json
     email = data['email']
     password = data['password']
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> main
     user = get_user(email)
     if user and user.password == password:
         db.session.delete(user)
@@ -220,7 +369,12 @@ def user_delete():
 def reset():
     try:
         Reset()
+<<<<<<< HEAD
         return jsonify({'message': 'Database has been successfully reset'}), 200
+=======
+        return jsonify({'message': 'Database has been successfully reset'}), \
+               200
+>>>>>>> main
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -246,5 +400,4 @@ def send_static(path):
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
-    
+    app.run(host='0.0.0.0', port=5000, debug=True)

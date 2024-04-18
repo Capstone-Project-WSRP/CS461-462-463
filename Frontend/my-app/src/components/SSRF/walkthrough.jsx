@@ -1584,9 +1584,15 @@ background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_
 </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1037" type="#_x0000_t75"
  alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:637.5pt;height:493.5pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image001.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=850 height=658
 src="SSRF_walkthrough_files/image001.png"
+=======
+ <v:imagedata src="walkthrough_files/image001.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=850 height=658
+src="walkthrough_files/image001.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_1"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1598,9 +1604,15 @@ background:#F0F0F0'>On the next screen just use the Burp default options.<o:p></
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2"
  o:spid="_x0000_i1036" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:643.5pt;height:494.25pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image002.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=858 height=659
 src="SSRF_walkthrough_files/image002.png"
+=======
+ <v:imagedata src="walkthrough_files/image002.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=858 height=659
+src="walkthrough_files/image002.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_2"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1612,9 +1624,15 @@ background:#F0F0F0'>Next click on the Proxy tab like so:<o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
  o:spid="_x0000_i1035" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:743.25pt;height:614.25pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image003.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=991 height=819
 src="SSRF_walkthrough_files/image003.png"
+=======
+ <v:imagedata src="walkthrough_files/image003.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=991 height=819
+src="walkthrough_files/image003.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_3"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1627,9 +1645,15 @@ application.<span style='mso-spacerun:yes'>� </span><o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
  o:spid="_x0000_i1034" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:810.75pt;height:532.5pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image004.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1081 height=710
 src="SSRF_walkthrough_files/image004.png"
+=======
+ <v:imagedata src="walkthrough_files/image004.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1081 height=710
+src="walkthrough_files/image004.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_4"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1638,9 +1662,15 @@ color:black;background:#F0F0F0'><o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6"
  o:spid="_x0000_i1033" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:621.75pt;height:467.25pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image005.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=829 height=623
 src="SSRF_walkthrough_files/image005.png"
+=======
+ <v:imagedata src="walkthrough_files/image005.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=829 height=623
+src="walkthrough_files/image005.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_6"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1652,9 +1682,15 @@ background:#F0F0F0'>Click the Target <span class=GramE>tab</span><o:p></o:p></sp
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
  o:spid="_x0000_i1032" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:1254.75pt;height:625.5pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image006.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1673 height=834
 src="SSRF_walkthrough_files/image006.png"
+=======
+ <v:imagedata src="walkthrough_files/image006.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1673 height=834
+src="walkthrough_files/image006.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_7"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1671,9 +1707,15 @@ messages that the server sends us and Burp Suit.<o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
  o:spid="_x0000_i1031" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:748.5pt;height:177.75pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image007.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=998 height=237
 src="SSRF_walkthrough_files/image007.png"
+=======
+ <v:imagedata src="walkthrough_files/image007.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=998 height=237
+src="walkthrough_files/image007.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_9"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1686,9 +1728,15 @@ to see what the server is being ran on<o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10"
  o:spid="_x0000_i1030" type="#_x0000_t75" style='width:1164pt;height:60.75pt;
  visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image008.png" o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1552 height=81
 src="SSRF_walkthrough_files/image008.png" v:shapes="Picture_x0020_10"><![endif]><o:p></o:p></span></p>
+=======
+ <v:imagedata src="walkthrough_files/image008.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1552 height=81
+src="walkthrough_files/image008.png" v:shapes="Picture_x0020_10"><![endif]><o:p></o:p></span></p>
+>>>>>>> main
 
 <p class=MsoNormal><span style='font-family:"Aptos",sans-serif;color:black;
 background:#F0F0F0'>We found the Server and know it does not use <span
@@ -1705,9 +1753,15 @@ let�s do the first two first.<o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_12"
  o:spid="_x0000_i1029" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:750.75pt;height:499.5pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image009.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1001 height=666
 src="SSRF_walkthrough_files/image009.png"
+=======
+ <v:imagedata src="walkthrough_files/image009.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1001 height=666
+src="walkthrough_files/image009.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_12"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1716,9 +1770,15 @@ color:black;background:#F0F0F0'><o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_13"
  o:spid="_x0000_i1028" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:754.5pt;height:483.75pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image010.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1006 height=645
 src="SSRF_walkthrough_files/image010.png"
+=======
+ <v:imagedata src="walkthrough_files/image010.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1006 height=645
+src="walkthrough_files/image010.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_13"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1730,9 +1790,15 @@ background:#F0F0F0'>Now let pen test with static <o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
  o:spid="_x0000_i1027" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:724.5pt;height:484.5pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image011.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=966 height=646
 src="SSRF_walkthrough_files/image011.png"
+=======
+ <v:imagedata src="walkthrough_files/image011.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=966 height=646
+src="walkthrough_files/image011.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_15"><![endif]></span><o:p></o:p></p>
 
@@ -1747,9 +1813,15 @@ to find the files.<o:p></o:p></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_16"
  o:spid="_x0000_i1026" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:731.25pt;height:477pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image012.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=975 height=636
 src="SSRF_walkthrough_files/image012.png"
+=======
+ <v:imagedata src="walkthrough_files/image012.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=975 height=636
+src="walkthrough_files/image012.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_16"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>
@@ -1758,9 +1830,15 @@ color:black;background:#F0F0F0'><o:p></o:p></span></p>
 background:#F0F0F0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17"
  o:spid="_x0000_i1025" type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
  style='width:449.25pt;height:189pt;visibility:visible;mso-wrap-style:square'>
+<<<<<<< HEAD
  <v:imagedata src="SSRF_walkthrough_files/image013.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=599 height=252
 src="SSRF_walkthrough_files/image013.png"
+=======
+ <v:imagedata src="walkthrough_files/image013.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=599 height=252
+src="walkthrough_files/image013.png"
+>>>>>>> main
 alt="A screenshot of a computer&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_17"><![endif]></span><span style='font-family:"Aptos",sans-serif;
 color:black;background:#F0F0F0'><o:p></o:p></span></p>

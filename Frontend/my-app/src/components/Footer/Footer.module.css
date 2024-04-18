@@ -3,11 +3,15 @@
   background-color: #333;
   color: #fff;
   padding: 10px;
+<<<<<<< HEAD
   /*text-align: center;*/
+=======
+>>>>>>> main
   position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
+<<<<<<< HEAD
   align-items: center; /* New! */
   justify-content: space-between; /* This will space out the items. */
 }
@@ -25,4 +29,23 @@
 .date {
   /* Align the date to the far right. */
   margin-right: 10px; /* Add some margin to the right of the date. */
+=======
+  align-items: center;
+  justify-content: space-between; /* This will space out the items */
+}
+
+.createdBy {
+  /* Removed flex-grow to prevent it from pushing other items around */
+  text-align: center; /* Center the text within the createdBy div */
+}
+
+.resetButton {
+  /* Align the button to the far left */
+  margin-left: 10px; /* Add some margin to the left of the button */
+}
+
+.date {
+  /* Align the date to the far right */
+  margin-right: 10px; /* Add some margin to the right of the date */
+>>>>>>> main
 }
