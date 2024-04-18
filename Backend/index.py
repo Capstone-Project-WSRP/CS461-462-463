@@ -11,11 +11,11 @@ CORS(app)
 # MySQL configurations using SQLAlchemy
 
 ####################### First one is for docker deploy ######################################
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/test'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@db:3306/website_security_database_ERD'
 #############################################################################################
 
 # This one is for local dev
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3333/website_security_database_ERD'
 #####################################################################################
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -64,8 +64,7 @@ def Reset():
 
         # List of user data to add
         users = [
-            {'name': 'Alice', 'email': 'alice@example.com',
-             'password': "Alice1234"},
+            {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
             {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
             # Add more users as needed
         ]
@@ -158,7 +157,7 @@ def insecure_user_search():
                                      port=3333,
                                      user='root',
                                      password='root',
-                                     db='test',
+                                     db='website_security_database_ERD',
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
 
@@ -288,4 +287,4 @@ def send_static(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
