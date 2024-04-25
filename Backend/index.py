@@ -1,11 +1,12 @@
 from flask import Flask, abort, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import pymysql
 import requests
 import logging
+import threading
 
 
 logger = logging.getLogger(__name__)
@@ -31,8 +32,16 @@ db = SQLAlchemy(app)
 limiter = Limiter(
     app=app,
     key_func=get_remote_address,  # This function uses the client IP address for rate limiting
-    default_limits=["200 per day", "50 per hour"]
+    default_limits=[]
 )
+
+failed_attempts = {}
+
+def reset_failed_attempts(ip_address):
+    """ Resets the failed attempts for a specific IP after a timeout """
+    with threading.Lock():
+        failed_attempts.pop(ip_address, None)
+
 # Define a model for your table
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -70,7 +79,8 @@ def Reset():
 
         # List of user data to add
         users = [
-            {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
+            {'name': 'Alice', 'email': 'alice@example.com',
+             'password': "Alice1234"},
             {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
             # Add more users as needed
         ]
@@ -235,27 +245,40 @@ def user_search(email, password):
     
 # Secure user search
 @app.route('/user_search_secure', methods=['POST'])
-@limiter.limit("5 per minute")
 def user_search_secure():
-    if request.method == 'POST':
-        data = request.json
-        email = data.get("email")
-        password = data.get("password")
-        if not email or not password:
-            abort(400, description="Missing email or password")
+    ip_address = get_remote_address()
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+    if not email or not password:
+        abort(400, description="Missing email or password")
 
-        user = get_user(email)
-        if user and user.password == password:
-            user_info = {
-                "ID": user.id,
-                "Name": user.name,
-                "Email": user.email
-            }
-            return jsonify(user_info), 200
-        else:
-            return jsonify({"message": "Invalid login credentials"}), 401
+    user = get_user(email)
+    if user and user.password == password:
+        # Reset the count of failed attempts on successful login
+        failed_attempts.pop(ip_address, None)
+        user_info = {
+            "ID": user.id,
+            "Name": user.name,
+            "Email": user.email
+        }
+        return jsonify(user_info), 200
     else:
-        abort(405)  # Method Not Allowed for non-POST requests
+        # Update the count of failed attempts
+        with threading.Lock():
+            if ip_address not in failed_attempts:
+                # Set a timer to reset this count after 60 seconds
+                timer = threading.Timer(60.0, reset_failed_attempts, [ip_address])
+                timer.start()
+                failed_attempts[ip_address] = 1
+            else:
+                failed_attempts[ip_address] += 1
+        
+        # Check if rate limit should be applied
+        if failed_attempts[ip_address] > 5:  # Allowing 5 failed attempts per minute
+            return jsonify({"message": "Rate limit exceeded"}), 429
+        
+        return jsonify({"message": "Invalid login credentials"}), 401
 
 
 @app.route('/user_edit', methods=['PUT'])
