@@ -1505,6 +1505,7 @@ ul
  </o:shapelayout></xml><![endif]-->
 </head>
 
+
 <body lang=EN-US link="#467886" vlink="#96607D" style='tab-interval:.5in;
 word-wrap:break-word'>
 
@@ -1513,21 +1514,114 @@ word-wrap:break-word'>
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span></b><![endif]><b>First you will need to install&nbsp;</b><a
-href="https://portswigger.net/burp/communitydownload"><b>Burp Suite Community
-edition</b></a><b>.<o:p></o:p></b></p>
+</span></span></span></b><![endif]>
+<b>First thing you will need is to make sure you are connected to the database.
+<br><br></b></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span></b><![endif]><b>Next, we will need to find some email
+</span></span></span></b><![endif]>
+<b>
+Next, we will need to find some email
 addresses to be able to try and access the database. Here are two that are
-in the database:<o:p></o:p></b></p>
+in the database:
+<o:p></o:p></b></p>
 
-<p class=MsoListParagraphCxSpMiddle>- <a href="mailto:Alice@example.com"><b>Alice@example.com</b></a><b><o:p></o:p></b></p>
+<p class=MsoListParagraphCxSpMiddle>- <a href="mailto:alice@example.com"><b>alice@example.com</b></a><b><o:p></o:p></b></p>
 
-<p class=MsoListParagraphCxSpMiddle>- <a href="mailto:Bob@example..com"><b>Bob@example..com</b></a><b><o:p></o:p></b></p>
+<p class=MsoListParagraphCxSpMiddle>- <a href="mailto:bob@example.com"><b>bob@example.com</b></a><b><o:p></o:p><br><br></b></p>
 
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
+style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]>
+<b>
+Now you will need to search for a user in the
+database. Normally, this search function provides you personal information on the user 
+upon inputting the correct email address and password. Of course, we don't know the password,
+but thankfully this input is vulnerable!
+<br><br></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
+style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
+style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]>
+<b>
+There are a few ways to get pass this password requirement by manipulating the 
+poorly implemented SQL query with injections of our own. Below is what this SQL query
+looks like in our code:
+<br><br></b>
+<span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+ type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+ style='width:468.5pt;height:262pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="SQL_walkthrough_files/image004extra.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=600 height=110
+src="SQL_walkthrough_files/image004extra.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+v:shapes="_x0000_i1036"><![endif]></span><b><br>
+<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
+style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
+style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]>
+<b>
+As you can see, all of our inputs will be treated as being a part of the SQL query itself, and not as
+data. Meaning if you know how to write in SQL, you can effectively inject new SQL statements into this
+query to change the way it functions. A simple way to check if this is vulnerable is by seeing if you can 
+input special characters into it, such as this "--" which effectively comments out whatever is 
+written after it. So let's input this statement into the email text box:
+<br><br></b>
+<span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+ type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+ style='width:468pt;height:253.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="SQL_walkthrough_files/image005extra.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=424 height=138
+src="SQL_walkthrough_files/image005extra.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+v:shapes="_x0000_i1035"><![endif]></span><b><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
+style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
+style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]>
+<b>
+Upon clicking "Search" you should get this output on this webpage:
+<br>
+<br>
+</b><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+ type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+ style='width:242pt;height:377pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="SQL_walkthrough_files/image006extra.png" o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]>
+<img border=0 width=423 height=203 src="SQL_walkthrough_files/image006extra.png" 
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"
+v:shapes="_x0000_i1034">
+<![endif]></span><b><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
+style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
+style='mso-list:Ignore'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]>
+<b>
+Good job, you have figured out a way to acquire personal information on the user in the 
+database without needing to know their password! It's really as easy as that! 
+This is a very simple implementation of an SQL injection, but you can try to figure out 
+other ways of breaking this SQL query by reading up more on the SQL language. 
+Trust me when I say that this thing is very broken.
+<br>
+<br>
+</b></p>
 
 
 <br />
@@ -1544,6 +1638,7 @@ in the database:<o:p></o:p></b></p>
 
 
 `
+
 
 function SQLdescription() {
     return (

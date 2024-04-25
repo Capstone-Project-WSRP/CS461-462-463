@@ -64,8 +64,7 @@ def Reset():
 
         # List of user data to add
         users = [
-            {'name': 'Alice', 'email': 'alice@example.com',
-             'password': "Alice1234"},
+            {'name': 'Alice', 'email': 'alice@example.com', 'password': "Alice1234"},
             {'name': 'Bob', 'email': 'bob@example.com', 'password': "Bob1234"},
             # Add more users as needed
         ]
