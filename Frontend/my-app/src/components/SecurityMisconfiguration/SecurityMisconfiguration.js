@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './SecurityMisconfiguration.module.css';
 import SMdescription from "./SMdescription";
 import MyComponent from "../SecurityMisconfiguration/walkthrough";
+import ErrorEd from "../SecurityMisconfiguration/SM_ErrorEd";
 import ReactDOM from "react-dom";
 import InsecureAdd from "./SM_InsecureAdd";
 
@@ -67,12 +68,20 @@ const SecurityMisconfiguration = () => {
           existing user in our database using the "Add User" button below.
           <br></br>
           - Don't forget to reset the database before you begin!
+          <br></br>
+          - Note: Please do not use real-world credentials! This web app is
+          meant to be insecure and any information entered is at risk
+          of being found by others.
           <br></br><br></br>
         <button onClick={openAddUserPopup}>Add User</button>
         </p>
       <div>
         <h3>Walkthrough</h3>
         <MyComponent />
+      </div>
+      <div>
+        <h3>How is this insecure, and how can we make it better?</h3>
+        <ErrorEd />
       </div>
     </div>
   );

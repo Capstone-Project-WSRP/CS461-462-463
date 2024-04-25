@@ -109,6 +109,28 @@ def create_user():
     return {"message": f"{name} was added successfully"}, 201
 
 
+@app.route('/sm_secure_creation', methods=['POST'])
+def sm_secure_creation():
+    data = request.json
+    name = data.get('name')
+    email = data.get('email')
+    password = data.get('password')
+
+    # Check that email is unique
+    existing = get_user(email)
+
+    if not existing:
+        # Create new User instance and add to database
+        new_user = User(name, email, password)
+        db.session.add(new_user)
+        db.session.commit()
+        return {"message": f"{name} was added successfully"}, 201
+
+    else:
+        # Return client-side error instead of revealing error message
+        return jsonify({"message": "An account associated with this user "
+                                   "already exists"}), 409
+
 @app.route('/sm_insecure_creation', methods=['POST'])
 def sm_insecure_creation():
     data = request.json
