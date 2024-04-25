@@ -11,19 +11,25 @@ const SecureAdd = ({closePopup}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        closePopup();
-        const response = await fetch('http://localhost:5000/sm_secure_creation', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({name, email, password}),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            alert(data.message); // Show success message
-        }
+      closePopup();
+      const response = await fetch('http://localhost:5000/sm_secure_creation', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({name, email, password}),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+          alert(data.message); // Show success message
+      } else {
+          if (data.message) {
+            alert(data.message); // Show backend specific error message
+          } else {
+            alert('Failed to create user. Please try again.'); // Generic error message
+          }
+      }
     }
     catch (error) {
       alert('An error occurred while creating the user.');
