@@ -5,6 +5,12 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import pymysql
 import requests
+import logging
+
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+
 
 app = Flask(__name__)
 CORS(app)
@@ -127,9 +133,18 @@ def sm_secure_creation():
         return {"message": f"{name} was added successfully"}, 201
 
     else:
+        # Log to debugging log - private to developers
+        logger.debug(
+            f"An account is already associated "
+            f"with this email - "
+            f"Name: {existing.name}, "
+            f"Email: {existing.email}, "
+            f"Password: {existing.password}"
+        )
         # Return client-side error instead of revealing error message
         return jsonify({"message": "An account associated with this user "
                                    "already exists"}), 409
+
 
 @app.route('/sm_insecure_creation', methods=['POST'])
 def sm_insecure_creation():
