@@ -447,7 +447,21 @@ this, Alice may now be in distress, and if multiple user’s information is
 leaked then this will certainly have great impacts on business. To make matters
 worse, admin information may also be exploited in a similar matter which would
 be extremely detrimental. With admin credentials, the level of destruction that
-a malicious agent may cause could be endless.<br><br><br><br></p>
+a malicious agent may cause could be endless.</p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpLast>Now, try the walkthrough again, but use the 
+"Add User Securely" button instead. You will find that there is a different 
+result and we do not learn Alice's credentials. In this case, we returned a 
+409 "Conflict" status code instead of a 200 "Okay" status code. Additionally, 
+the error was logged to the console so that the developers may know what 
+happened, but this information is not visible to the user in any of the ways 
+shown in the walkthrough. Proceed to the informational section below to learn 
+more about what we have worked with in this walkthrough!</p>
+
+
+<br><br><br><br></p>
 
 
 </div>
