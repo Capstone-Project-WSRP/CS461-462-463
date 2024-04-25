@@ -1,6 +1,6 @@
 from flask import Flask, abort, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import pymysql
@@ -25,7 +25,7 @@ db = SQLAlchemy(app)
 limiter = Limiter(
     app=app,
     key_func=get_remote_address,  # This function uses the client IP address for rate limiting
-    default_limits=["200 per day", "50 per hour"]
+    default_limits=["2000 per day", "1000 per hour"]
 )
 # Define a model for your table
 class User(db.Model):
@@ -143,7 +143,7 @@ def insecure_user_search():
     data = request.json
     email = data.get('email')
     password = data.get('password')
-
+    
     try:
         # for docker compose to work uncomment this and comment out the other
         # connection = pymysql.connect(host='db',
