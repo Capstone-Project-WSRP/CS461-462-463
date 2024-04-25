@@ -36,12 +36,6 @@ def reset_failed_attempts(ip_address):
     with threading.Lock():
         failed_attempts.pop(ip_address, None)
 
-def limit_by_response():
-    # This function will be evaluated after the route function
-    # It needs to check something set during request handling to determine the limit
-    return "5 per minute" if getattr(g, 'limit_request', False) else "1000 per minute"
-
-
 # Define a model for your table
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
