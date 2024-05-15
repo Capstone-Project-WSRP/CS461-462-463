@@ -251,7 +251,7 @@ def user_search_secure():
     email = data.get("email")
     password = data.get("password")
     if not email or not password:
-        abort(400, description="Missing email or password")
+        return jsonify({"message": "NO email or password!"}), 400
 
     user = get_user(email)
     if user and user.password == password:
