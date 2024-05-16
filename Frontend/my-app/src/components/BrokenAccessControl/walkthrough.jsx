@@ -1991,10 +1991,10 @@ v:shapes="Picture_x0020_1"><![endif]></span><b><o:p></o:p></b></p>
 `
 
 
-function BACdecription() {
+function BACwalkthrough() {
     return (
       <div dangerouslySetInnerHTML={{ __html: htmlFile }} />
     );
   }
 
-  export default BACdecription
+  export default BACwalkthrough
