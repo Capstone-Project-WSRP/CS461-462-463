@@ -197,9 +197,9 @@ was this significant?</p>
 <p class=MsoListParagraph style='margin-left:1.75in;text-indent:-1.75in'><span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span>The attack seems to be motivated at least partly by Snapchat�s assertion
+</span>The attack seems to be motivated at least partly by Snapchat's assertion
 that the attack was theoretical, and they had not taken any action. This
-resulted in the data leakage of phone numbers and user�s details that could be
+resulted in the data leakage of phone numbers and users details that could be
 valuable for various uses.</p>
 
 <p class=MsoNormal style='margin-left:1.25in'>&nbsp;</p>
