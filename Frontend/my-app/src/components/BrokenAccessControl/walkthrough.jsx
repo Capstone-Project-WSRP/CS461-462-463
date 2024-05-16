@@ -1798,7 +1798,7 @@ style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp
 </span></span></span></b><![endif]><b>In Burp Suite click on Target. Now back
 in the <span class=SpellE>webApp</span> <span class=GramE>preform</span> the
 search with the user you just created. Now in the tree on the left side of Burp
-suite you should see �http://localhost:5000. Open the tree and find <span
+suite you should see http://localhost:5000. Open the tree and find <span
 class=SpellE>user_search</span>. <br>
 <br>
 </b><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
@@ -1883,7 +1883,7 @@ v:shapes="_x0000_i1030"><![endif]></span><br>
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span></b><![endif]><b>Next
-highlight the password field and click the �Add� button on the right side of
+highlight the password field and click the Add button on the right side of
 the screen.</b> <br>
 <br>
 <span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
@@ -1901,7 +1901,7 @@ v:shapes="_x0000_i1029"><![endif]></span><br>
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l1 level1 lfo2'><![if !supportLists]><b><span
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>11.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span></b><![endif]>Now
-click �Payloads�<br>
+click Payloads<br>
 <br>
 <span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
  type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
@@ -1942,7 +1942,7 @@ v:shapes="_x0000_i1027"><![endif]></span><br>
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span></b><![endif]><b>Now
 simply click Start Attack! And Alice1234 is the only password the return 200,
-we now have Alice�s password. <br>
+we now have Alice's password. <br>
 <br>
 </b><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
  type="#_x0000_t75" alt="A screenshot of a computer&#10;&#10;Description automatically generated"
@@ -1960,10 +1960,10 @@ v:shapes="_x0000_i1026"><![endif]></span><b><br>
 style='mso-bidi-font-family:Aptos;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>14.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span></b><![endif]><b>Using
 </b><a href="mailto:alice@example.com"><b>alice@example.</b>com</a> and the
-password �Alice1234� preform the search again and we now have <span
-class=SpellE>alice�s</span> personal information. You can imagine that with
+password Alice1234 preform the search again and we now have <span
+class=SpellE>alice's</span> personal information. You can imagine that with
 this you would be more information about <span class=SpellE>alice</span> or the
-ability to preform actions you shouldn�t be able to. In the example none of
+ability to preform actions you shouldn't be able to. In the example none of
 that is present and this is just for demonstration. <br>
 <br>
 <span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
@@ -1991,10 +1991,10 @@ v:shapes="Picture_x0020_1"><![endif]></span><b><o:p></o:p></b></p>
 `
 
 
-function BACdecription() {
+function BACwalkthrough() {
     return (
       <div dangerouslySetInnerHTML={{ __html: htmlFile }} />
     );
   }
 
-  export default BACdecription
+  export default BACwalkthrough

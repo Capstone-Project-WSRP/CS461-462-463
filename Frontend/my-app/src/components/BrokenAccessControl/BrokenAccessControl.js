@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import AddUser from "./addUser";
 import Search from "./search";
 import BACdescription from "./BACdescription";
-import MyComponent from "./walkthrough.jsx";
+import BACwalkthrough from "./walkthrough.jsx";
+import BACsecurity from "./security.jsx";
 import styles from "./BrokenAccessControl.module.css";
 
 const BrokenAccessControl = () => {
@@ -62,7 +63,11 @@ const BrokenAccessControl = () => {
       </div>
       <div>
         <h3>Perform this Attack</h3>
-        <MyComponent />
+        <BACwalkthrough />
+      </div>
+      <div>
+        <h3>How it is Secure</h3>
+        <BACsecurity />
       </div>
     </div>
   );
