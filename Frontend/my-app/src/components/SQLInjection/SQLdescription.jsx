@@ -192,9 +192,55 @@ and SQL structures cannot be escaped.</p>
 
 <p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>&nbsp;</p>
 
+
 <p class=MsoNormal><u>V. Case Studies</u></p>
 
-<p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>1. TODO </p>
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Heartland Payment Systems, 
+Data Breach (Aug 2009):</b></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+A website form that granted access to Heartland's corporate network had an SQL vulnerability 
+in its code for several years until hackers figured it out and breached the database
+in late 2007 via SQL injection. This attack remained undetected for several months until early
+2009, resulting in over 130 millions credit cards being compromised and more than $300 
+million in losses. It was considered to be one of the largest case of identity theft
+in its time.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Why
+was this significant?</p>
+
+<p class=MsoListParagraph style='margin-left:1.75in;text-indent:-1.75in'><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>This attack highlights the importance of adequate input validation and sanitization
+in web forms, along with the need to remain aware of common forms of cyberattack.
+The reason this had happened was because of the lack in awareness of what SQL injections are, 
+which is an incredibly simple vector of attack that could easily be prevented with proper 
+input etiquettecy.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in'>c.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Sources:</p>
+
+<p class=MsoListParagraph style='margin-left:1.75in;text-indent:-1.75in'><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a href="https://www.secretservice.gov/press/releases/2018/02/sentencing-largest-data-breach-prosecuted-united-states" 
+target="_self">"Sentencing in Largest Data Breach Prosecuted in United States"</a>, U.S. Secret Service Media Relations, 14 February 2018.</p>
+
+<p class=MsoListParagraph style='margin-left:1.75in;text-indent:-1.75in'><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Cheney, Julia S. <a href="https://www.philadelphiafed.org/-/media/frbp/assets/consumer-finance/discussion-papers/D-2010-January-Heartland-Payment-Systems.pdf" 
+target="_self">"Heartland Payment Systems: Lessons Learned from a Data Breach"</a>, Federal Reserve Bank of Philadelphia, January 2010.</p>
+
+<p class=MsoListParagraph style='margin-left:1.75in;text-indent:-1.75in'><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>iii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Fishman, Jacob. <a href="https://www.bing.com/ck/a?!&&p=45d6be48a90b4ccbJmltdHM9MTcxNTczMTIwMCZpZ3VpZD0zZDdkNTFjMS1iMTFlLTY2NzUtMGQyMS00MzMxYjA1ZDY3M2MmaW5zaWQ9NTIwOA&ptn=3&ver=2&hsh=3&fclid=3d7d51c1-b11e-6675-0d21-4331b05d673c&psq=heartland+2009+sql+injection+attack+university+of+virginia&u=a1aHR0cHM6Ly9saWJyYWV0ZC5saWIudmlyZ2luaWEuZWR1L2Rvd25sb2Fkcy92OTc5djM4OXM_ZmlsZW5hbWU9RmlzaG1hbl9KYWNvYl9TVFNfUmVzZWFyY2hfUGFwZXIucGRm&ntb=1" 
+target="_self">"Heartland Payment Systems: A Case Study in Unethical Behavior"</a> (Link Will Download File), University of Virginia, 9 April 2020.</p>
 
 <p class=MsoNormal style='margin-left:.25in;text-indent:.5in'>&nbsp;</p>
 
