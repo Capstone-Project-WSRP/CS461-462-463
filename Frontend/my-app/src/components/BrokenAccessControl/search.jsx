@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from "./BrokenAccessControl.module.css";
 
 function Search() {
   const [email, setEmail] = useState('');
@@ -67,19 +68,21 @@ function Search() {
     <div>
       <form>
         <input
+          className={styles.inputbox}
           type="email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email"
         />
         <input
+          className={styles.inputbox}
           type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter password"
         />
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={handleSecureSearch}>Secure Search</button>
+        <button  className={styles.fetch} onClick={handleSearch}>Search</button>
+        <button  className={styles.fetch} onClick={handleSecureSearch}>Secure Search</button>
       </form>
       {error && <p>Error: {error}</p>} {/* Display error message if error state is set */}
       {results.length > 0 && (
@@ -97,3 +100,5 @@ function Search() {
 }
 
 export default Search;
+
+

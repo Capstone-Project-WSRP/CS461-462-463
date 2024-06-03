@@ -1,6 +1,6 @@
 import React, { useState } from "react"; // Import useState.
 import Search from "./SQLInjectionSearch";
-import styles from "./SQLInjectionmodule.css";
+import styles from "./SQLInjection.module.css";
 import SQLdescription from "./SQLdescription.jsx";
 import MyComponent from "./walkthrough.jsx";
 
@@ -26,7 +26,7 @@ const SQLInjection = () => {
         {/* Conditionally rendering "SQLdescription" based on "isDescriptionVisible". */}
         {isDescriptionVisible && <SQLdescription />}
         {/* Button to toggle the description. */}
-        <button className={styles.button} onClick={toggleDescription}>
+        <button className={styles.fetch} onClick={toggleDescription}>
             {isDescriptionVisible ? "Hide" : "Show"}
         </button>
         <br></br>

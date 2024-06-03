@@ -85,15 +85,14 @@ const SecurityMisconfiguration = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Security Misconfiguration</h1>
-      <div className={styles.description}>
         <h2>
           What are Security Misconfigurations?&nbsp;&nbsp;&nbsp;
-          <button className={styles.button} onClick={toggleDescription}>
+          <button className={styles.fetch} onClick={toggleDescription}>
             {isDescriptionVisible ? "Hide" : "Show"}
           </button>
-          {isDescriptionVisible && <SMdescription />}
         </h2>
-        </div>
+        
+          {isDescriptionVisible && <SMdescription />}
         <h3>
           Perform an attack
         </h3>
@@ -110,8 +109,8 @@ const SecurityMisconfiguration = () => {
           meant to be insecure and any information entered is at risk
           of being found by others.
           <br></br><br></br>
-        <button onClick={openAddUserInsecurePopup}>Add User Insecurely</button>&nbsp;&nbsp;
-        <button onClick={openAddUserSecurePopup}>Add User Securely</button>
+        <button className={styles.fetch} onClick={openAddUserInsecurePopup}>Add User Insecurely</button>&nbsp;&nbsp;
+        <button className={styles.fetch} onClick={openAddUserSecurePopup}>Add User Securely</button>
         </p>
       <div>
         <h3>Walkthrough</h3>

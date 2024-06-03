@@ -36,6 +36,32 @@ const SSRF = () => {
       setFileContent('');
     }
   };
+  const handleSecureFetchFile = async () => {
+    const fetchUrl = 'http://localhost:5000/secure_fetch_file';
+
+    try {
+      const response = await fetch(fetchUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url }),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setFileContent(responseData.file_content);
+        setError('');
+      } else {
+        const errorMessage = await response.text();
+        setError(errorMessage);
+        setFileContent('');
+      }
+    } catch (error) {
+      setError('An error occurred');
+      setFileContent('');
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -47,12 +73,14 @@ const SSRF = () => {
       </p>
       <div>
         <input
+          className={styles.inputbox}
           type="text"
           placeholder="Enter URL of the file"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <button onClick={handleFetchFile}>Fetch File</button>
+        <button className={styles.fetch} onClick={handleFetchFile}>Fetch File</button>
+        <button className={styles.fetch} onClick={handleSecureFetchFile}>Secure Fetch File</button>
       </div>
       {fileContent && <pre>{fileContent}</pre>}
       {error && <div>Error: {error}</div>}
