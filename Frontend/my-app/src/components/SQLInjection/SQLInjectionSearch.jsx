@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from "./SQLInjection.module.css";
 
 function Search() {
   const [email, setEmail] = useState(''); // Changed to use email
@@ -70,8 +71,9 @@ function Search() {
 
   return (
     <div>
-      <form> {/*onSubmit={handleSearch}>*/}
+      <form>
         <input
+          className={styles.inputbox}
           type="text" // Changed to text input for a lack of semantic correctness
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -79,14 +81,14 @@ function Search() {
           /* What works as input: alice@example.com' --'*/
         />
         <input
+          className={styles.inputbox}
           type="password" // Confirming this is a password input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter password"
         />
-        {/*<button type="submit">Search</button>*/}
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={handleSecureSearch}>Secure Search</button>
+        <button onClick={handleSearch} className={styles.fetch} type="submit">Search</button>
+        <button onClick={handleSecureSearch}className={styles.fetch} >Secure Search</button>
       </form>
       {error && <p>Error: {error}</p>} {/* Display error message if error state is set */}
       {results.length > 0 && (
