@@ -3,18 +3,18 @@ import React from 'react';
 const SMdescription = () => {
   return (
     <div>
-      <h2>Introduction</h2>
-      <p>Security misconfiguration refers to the improper implementation or configuration of security controls within a web application or its underlying infrastructure. These security misconfigurations usually stem from a lack of awareness, or an oversight performed by the development team of a web application or its administrators.
+      <h3>Introduction</h3>
+      <p>Security misconfiguration refers to the improper implementation or configuration of security controls within a web application or its underlying infrastructure. These security misconfigurations usually stem from a lack of awareness, 
+        or an oversight performed by the development team of a web application or its administrators. Due to this, it is extremely important as developers to ensure 
+        we are utilizing secure practices in our daily work. Further examples of security misconfigurations and their implications are discussed in more detail below.</p>
 
-        Due to this, it is extremely important as developers to ensure we are utilizing secure practices in our daily work. Further examples of security misconfigurations and their implications are discussed in more detail below.</p>
-
-      <h2>Understanding Security Misconfigurations</h2>
+      <h3>Understanding Security Misconfigurations</h3>
       <p>Security misconfigurations can manifest in various forms, including:</p>
       <ol>
-        <li><strong>Default settings:</strong> Failing to modify default configurations of servers, frameworks, or third-party libraries can leave systems vulnerable to attacks.</li>
-        <li><strong>Excessive permissions:</strong> Granting overly permissive access rights or privileges to users, applications, or services can lead to unauthorized access or privilege escalation.</li>
-        <li><strong>Improper error handling:</strong> Revealing sensitive information in error messages or not properly handling exceptions can aid attackers in understanding the system's structure and potentially exploiting</li>
-        <li><strong>Insecure network settings:</strong> Poorly configured network settings, such as open ports or weak encryption protocols, can expose sensitive data to interception or unauthorized access.</li>
+        <li><strong>Default Settings:</strong> Failing to modify default configurations of servers, frameworks, or third-party libraries can leave systems vulnerable to attacks.</li>
+        <li><strong>Excessive Permissions:</strong> Granting overly permissive access rights or privileges to users, applications, or services can lead to unauthorized access or privilege escalation.</li>
+        <li><strong>Improper Error Handling:</strong> Revealing sensitive information in error messages or not properly handling exceptions can aid attackers in understanding the system's structure and potentially exploiting</li>
+        <li><strong>Insecure Network Settings:</strong> Poorly configured network settings, such as open ports or weak encryption protocols, can expose sensitive data to interception or unauthorized access.</li>
       </ol>
 
       <h3>The Impact of Security Misconfigurations</h3>
@@ -37,7 +37,7 @@ const SMdescription = () => {
 
       <h3>Case Studies</h3>
       <p>TODO</p>
-      <h2>Conclusion</h2>
+      <h3>Conclusion</h3>
       <p>In an era where cyber threats continue to evolve in sophistication and frequency, the significance of preventing security misconfigurations cannot be overstated. Misconfigurations represent low-hanging fruit for malicious actors, providing them with potential entry points to exploit vulnerabilities and compromise critical assets. The consequences of such breaches extend beyond financial losses to encompass damage to reputation, regulatory fines, and legal liabilities. Moreover, the interconnected nature of modern IT environments amplifies the ripple effects of misconfigurations, magnifying their impact across organizations and industries.
         <br></br>
         <br></br>

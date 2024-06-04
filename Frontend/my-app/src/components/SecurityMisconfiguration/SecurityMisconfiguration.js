@@ -93,9 +93,9 @@ const SecurityMisconfiguration = () => {
         </h2>
         
           {isDescriptionVisible && <SMdescription />}
-        <h3>
-          Perform an attack
-        </h3>
+        <h2>
+          Perform this Attack
+        </h2>
         <p> - Please follow the Walkthrough section below to learn how to
           exploit security misconfigurations in an attack
           on this web application.<br></br>

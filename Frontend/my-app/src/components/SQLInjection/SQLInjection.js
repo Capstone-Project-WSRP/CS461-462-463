@@ -6,7 +6,7 @@ import MyComponent from "./walkthrough.jsx";
 
 const SQLInjection = () => {
     // State to manage visibility of BACdescription.
-    const [isDescriptionVisible, setDescriptionVisible] = useState(false);
+    const [isDescriptionVisible, setDescriptionVisible] = useState(true);
 
     // Toggle function.
     const toggleDescription = () => {
@@ -21,15 +21,15 @@ const SQLInjection = () => {
       <p className={styles.description}>
         <Search />
         <br></br>
-        <h2>What are SQL Injections?</h2>
-
+        <h2>
+          What are SQL Injections?&nbsp;&nbsp;&nbsp;
+          {/* Button to toggle the description. */}
+          <button className={styles.fetch} onClick={toggleDescription}>
+              {isDescriptionVisible ? "Hide" : "Show"}
+          </button>
+        </h2>
         {/* Conditionally rendering "SQLdescription" based on "isDescriptionVisible". */}
         {isDescriptionVisible && <SQLdescription />}
-        {/* Button to toggle the description. */}
-        <button className={styles.fetch} onClick={toggleDescription}>
-            {isDescriptionVisible ? "Hide" : "Show"}
-        </button>
-        <br></br>
       </p>
       <p>
         <h2>Perform this Attack</h2>
