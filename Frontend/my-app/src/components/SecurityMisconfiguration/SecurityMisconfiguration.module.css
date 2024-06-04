@@ -7,6 +7,22 @@
 .title {
   color: #333;
 }
-.description {
-  color: #666;
+
+
+.basdes ol li ul li {
+  margin-left: 20px; 
+}
+.fetch {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 10px 5px;
+}
+.inputbox {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 5px;
 }

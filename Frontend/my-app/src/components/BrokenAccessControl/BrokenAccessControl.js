@@ -48,18 +48,18 @@ const BrokenAccessControl = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Broken Access Control</h1>
-      <div className={styles.description}>
+      <div>
         <Search />
         <p>
-          <button onClick={openAddUserPopup}>Add User</button>
+          <button className={styles.fetch} onClick={openAddUserPopup}>Add User</button>
         </p>
         <h2>
           What is Broken Access Control
-          <button className={styles.button} onClick={toggleDescription}>
+          <button className={styles.fetch} onClick={toggleDescription}>
             {isDescriptionVisible ? "Hide" : "Show"}
           </button>
-          {isDescriptionVisible && <BACdescription />}
         </h2>
+        {isDescriptionVisible && <BACdescription />}
       </div>
       <div>
         <h3>Perform this Attack</h3>

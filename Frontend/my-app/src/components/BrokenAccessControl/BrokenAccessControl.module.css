@@ -4,11 +4,23 @@
   margin: 0;
   padding: 0;
 }
-.title {
-  color: #333;
+
+.basdes ol ul {
+  margin-left: 20px; 
 }
-.description {
-  color: #666;
+.fetch {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 10px 5px;
+}
+.inputbox {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 5px;
 }
 
 .button {

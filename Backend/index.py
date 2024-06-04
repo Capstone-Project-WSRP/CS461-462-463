@@ -29,6 +29,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+ALLOWED_DOMAINS = ['/static/data.txt']
+
 limiter = Limiter(
     app=app,
     key_func=get_remote_address,  # This function uses the client IP address for rate limiting
@@ -339,6 +341,31 @@ def fetch_file():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/secure_fetch_file', methods=['POST'])
+def secure_fetch_file():
+    data = request.json
+    url = data.get('url')
+
+    # IF INPUT IS NOT A URL AKA INPUT VALIDATION 
+    if not url:
+        return jsonify({'error': 'URL not provided'}), 400
+
+    # BREAK THE URL INTO PARTS
+    parsed_url = urlparse(url)
+    # Validate that the URL belongs to one of the allowed domains
+    if parsed_url.path not in ALLOWED_DOMAINS:
+        return jsonify({'error': 'URL is not from an allowed domain'}), 403
+
+    # Fetch the file securely
+    try:
+        response = requests.get(url)
+        if response.ok:
+            file_content = response.content.decode('utf-8')
+            return jsonify({'file_content': file_content}), 200
+        else:
+            return jsonify({'error': 'Failed to fetch file'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/static/<path:path>')
 def send_static(path):
