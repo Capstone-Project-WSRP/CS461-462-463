@@ -85,33 +85,37 @@ const SecurityMisconfiguration = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Security Misconfiguration</h1>
-        <h2>
-          What are Security Misconfigurations?&nbsp;&nbsp;&nbsp;
-          <button className={styles.fetch} onClick={toggleDescription}>
-            {isDescriptionVisible ? "Hide" : "Show"}
-          </button>
-        </h2>
+      <h2>
+        What are Security Misconfigurations?&nbsp;&nbsp;&nbsp;
+        <button className={styles.fetch} onClick={toggleDescription}>
+          {isDescriptionVisible ? "Hide" : "Show"}
+        </button>
+      </h2>
         
-          {isDescriptionVisible && <SMdescription />}
-        <h2>
-          Perform this Attack
-        </h2>
-        <p> - Please follow the Walkthrough section below to learn how to
+      {isDescriptionVisible && <SMdescription />}
+      <br></br>
+      <h2>
+        Perform this Attack
+      </h2>
+      <p> 
+        - Please follow the Walkthrough section below to learn how to
           exploit security misconfigurations in an attack
-          on this web application.<br></br>
-          - Your goal will be to find out the login credentials for an
+          on this web application.
+        <br></br>
+        - Your goal will be to find out the login credentials for an
           existing user in our database using the "Add User Insecurely" button below.
-          <br></br>
-          - Don't forget to reset the database before you begin!
-          <br></br>
-          <br></br>
-          - <b>Note: </b>Please do not use real-world credentials! This web app is
+        <br></br>
+        - Don't forget to reset the database before you begin!
+        <br></br>
+        <br></br>
+        - <b>Note: </b>Please do not use real-world credentials! This web app is
           meant to be insecure and any information entered is at risk
           of being found by others.
-          <br></br><br></br>
+        <br></br><br></br>
         <button className={styles.fetch} onClick={openAddUserInsecurePopup}>Add User Insecurely</button>&nbsp;&nbsp;
         <button className={styles.fetch} onClick={openAddUserSecurePopup}>Add User Securely</button>
-        </p>
+      </p>
+      <br></br>
       <div>
         <h3>Walkthrough</h3>
         <MyComponent />

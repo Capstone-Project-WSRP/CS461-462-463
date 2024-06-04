@@ -61,10 +61,12 @@ const BrokenAccessControl = () => {
         </h2>
         {isDescriptionVisible && <BACdescription />}
       </div>
+      <br></br>
       <div>
         <h2>Perform this Attack</h2>
         <BACwalkthrough />
       </div>
+      <br></br>
       <div>
         <h2>How it is Secure</h2>
         <BACsecurity />
