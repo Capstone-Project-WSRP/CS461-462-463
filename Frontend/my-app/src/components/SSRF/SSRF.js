@@ -84,10 +84,13 @@ const SSRF = () => {
       </div>
       {fileContent && <pre>{fileContent}</pre>}
       {error && <div>Error: {error}</div>}
-      <button className={styles.button} onClick={toggleDescription}>
+      <h2>
+        What is Server-Side Request Forgery (SSRF)?&nbsp;&nbsp;&nbsp;
+        <button className={styles.fetch} onClick={toggleDescription}>
             {isDescriptionVisible ? "Hide" : "Show"}
-          </button>
-          {isDescriptionVisible && <SSRFdescription />}
+        </button>
+      </h2>
+      {isDescriptionVisible && <SSRFdescription />}
       <div>
         <MyComponent />
       </div>

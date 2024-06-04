@@ -3,7 +3,7 @@ import React from 'react';
 const MyComponent = () => {
   return (
     <div >
-      <h2>Perform this attack</h2>
+      <h2>Perform this Attack</h2>
       <p>These are the steps that you will need to follow to perform this vulnerability:</p>
       <ol>
 			

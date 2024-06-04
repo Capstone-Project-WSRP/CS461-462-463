@@ -54,7 +54,7 @@ const BrokenAccessControl = () => {
           <button className={styles.fetch} onClick={openAddUserPopup}>Add User</button>
         </p>
         <h2>
-          What is Broken Access Control
+          What is Broken Access Control?&nbsp;&nbsp;&nbsp;
           <button className={styles.fetch} onClick={toggleDescription}>
             {isDescriptionVisible ? "Hide" : "Show"}
           </button>
@@ -62,11 +62,11 @@ const BrokenAccessControl = () => {
         {isDescriptionVisible && <BACdescription />}
       </div>
       <div>
-        <h3>Perform this Attack</h3>
+        <h2>Perform this Attack</h2>
         <BACwalkthrough />
       </div>
       <div>
-        <h3>How it is Secure</h3>
+        <h2>How it is Secure</h2>
         <BACsecurity />
       </div>
     </div>
