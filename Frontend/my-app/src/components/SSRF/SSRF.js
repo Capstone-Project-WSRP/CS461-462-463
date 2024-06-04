@@ -91,6 +91,7 @@ const SSRF = () => {
         </button>
       </h2>
       {isDescriptionVisible && <SSRFdescription />}
+      <br></br>
       <div>
         <MyComponent />
       </div>

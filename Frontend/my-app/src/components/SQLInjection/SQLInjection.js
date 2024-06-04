@@ -31,6 +31,7 @@ const SQLInjection = () => {
         {/* Conditionally rendering "SQLdescription" based on "isDescriptionVisible". */}
         {isDescriptionVisible && <SQLdescription />}
       </p>
+      <br></br>
       <p>
         <h2>Perform this Attack</h2>
         <MyComponent />
