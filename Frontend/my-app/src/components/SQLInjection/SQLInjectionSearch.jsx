@@ -71,7 +71,7 @@ function Search() {
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <form>
         <input
           className={styles.inputbox}
           type="text" // Changed to text input for a lack of semantic correctness
@@ -90,6 +90,7 @@ function Search() {
         <button onClick={handleSearch} className={styles.fetch} type="submit">Search</button>
         <button onClick={handleSecureSearch}className={styles.fetch} >Secure Search</button>
       </form>
+      {error && <p>Error: {error}</p>} {/* Display error message if error state is set */}
       {results.length > 0 && (
         <ul>
           {results.map((user, index) => (
