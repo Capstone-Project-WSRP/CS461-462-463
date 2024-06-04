@@ -4,7 +4,7 @@ const MyComponent = () => {
   return (
     <div>
       <ol>
-      <li><strong>First, you will need to install Burp Suite Community edition.</strong></li>
+      <li><strong>First, you will need to install <a href="https://portswigger.net/burp/communitydownload">Burp Suite Community edition.</a></strong></li>
 <li><strong>Next, we will need to find some email addresses to be able to try and break some passwords. I will provide 2 that are in the system for sure.</strong><br></br>
   <strong>Alice@example.com</strong><br></br>
   <strong>Bob@example.com</strong></li>

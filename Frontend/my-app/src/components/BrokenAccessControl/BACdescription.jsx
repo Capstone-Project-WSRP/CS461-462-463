@@ -38,7 +38,7 @@ const BACdescription = () => {
     <li>
       <h4>SnapChat, Data Breach (Jan 2014):</h4>
       <ol>
-        <li>Gibson Security detailed vulnerabilities in the Snapchat service, which was dismissed as a purely theoretical attack. A week later, brute force enumeration had revealed 4.6 million usernames and phone numbers.</li>
+        <li><a href="https://gibsonsec.org/snapchat/">Gibson Security</a> detailed vulnerabilities in the Snapchat service, which was dismissed as a purely theoretical attack. A week later, brute force enumeration had revealed 4.6 million usernames and phone numbers.</li>
         <li>Why was this significant?
           <ul>
             <li>The attack seems to be motivated at least partly by Snapchat's assertion that the attack was theoretical, and they had not taken any action. This resulted in the data leakage of phone numbers and user details that could be valuable for various uses.</li>
@@ -49,7 +49,7 @@ const BACdescription = () => {
     <li>
       <h4>Facebook Business Pages, Attack (2015):</h4>
       <ul>
-        <li>Laxman Muthiyah found that it was possible for a malicious user to use a request to assign admin permissions to himself for a particular Facebook page. A sample request can be seen below:</li>
+        <li><a href="https://www.7xter.com/2015/08/hacking-facebook-pages.html">Laxman Muthiyah</a> found that it was possible for a malicious user to use a request to assign admin permissions to himself for a particular Facebook page. A sample request can be seen below:</li>
         <li>
           <p><strong>Request:</strong></p>
           <ul style={{marginLeft: "20px"}}>
